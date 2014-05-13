@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mapContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	    
+	<include android:id="@+id/googleMap"
+	         layout="@layout/googlemap" />
+	     
+	     
+	<LinearLayout
+	android:id="@+id/mapsChoice"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content" >
+	
+	<!-- 定义选择地图类型的单选按钮 -->
+	
+	    <RadioGroup
+	        android:id="@+id/rg_mapType"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" >
+	
+	        <RadioButton
+	            android:id="@+id/rb_nomal"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:checked="true"
+	            android:text="普通视图" />
+	
+	        <RadioButton
+	            android:id="@+id/rb_satellite"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="卫星视图" />
+	    </RadioGroup>
+	</LinearLayout>
+
+</FrameLayout>
