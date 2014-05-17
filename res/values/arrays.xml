@@ -11,11 +11,11 @@
 
 
     <string-array name="nav_classes">
-        <item>com.example.googlemapapisample.MapActivity</item>
-        <item>com.example.googlemapapisample.SimpleAdapterFragment</item>
-        <item>com.example.googlemapapisample.SimpleAdapterFragment</item>
-        <item>com.example.googlemapapisample.SimpleAdapterFragment</item>
-        <item>com.example.googlemapapisample.SimpleAdapterFragment</item>
+        <item>com.isee.MapFragment</item>
+        <item>com.isee.SimpleAdapterFragment</item>
+        <item>com.isee.ArFragment</item>
+        <item>com.isee.SimpleAdapterFragment</item>
+        <item>com.isee.SimpleAdapterFragment</item>
     </string-array>
 
 </resources>
