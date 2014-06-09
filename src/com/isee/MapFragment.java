@@ -57,6 +57,9 @@ public class MapFragment extends Fragment
     	return null;
 	}
     
+    
+    
+    
     public void onActivityCreated(Bundle savedInstanceState)
     {
     	super.onActivityCreated(savedInstanceState);
@@ -142,13 +145,53 @@ public class MapFragment extends Fragment
 	{
 	    //创建LocationManager对象
 	    locManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+	    
 	    // List all providers:
 	    //List<String> providers = locManager.getAllProviders();
-	    Criteria criteria = new Criteria();
-	    bestProvider = locManager.getBestProvider(criteria, false);
+	    
+	    Criteria criteria = new Criteria();  
+        // 查询精度：高  
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);  
+        // 是否查询海拨：否  
+        criteria.setAltitudeRequired(false);  
+        // 是否查询方位角 : 否  
+        criteria.setBearingRequired(false);  
+        // 是否允许付费：false 
+        criteria.setCostAllowed(false);  
+        // 电量要求：低  
+        criteria.setPowerRequirement(Criteria.POWER_LOW);  
+        // 返回最合适的符合条件的 provider ，第 2 个参数为 true 说明 , 如果只有一个 provider 是有效的 , 则返回当前  
+        // provider
+	    bestProvider = locManager.getBestProvider(criteria, true);
+	    System.out.println(bestProvider + "!!!");
+	    //location
 	    location = locManager.getLastKnownLocation(bestProvider);
-	    System.out.println("经度："+location.getLatitude()+"  纬度：" + location.getLongitude());
+	    if (location == null)
+	    {
+	    	System.out.println("No location!!!");	    	
+	    	location = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+	    }
+	    else
+	    	System.out.println("经度："+location.getLatitude()+"  纬度：" + location.getLongitude());
+	    
+	    
+	  //open GPS
+	    if (locManager  
+                .isProviderEnabled(android.location.LocationManager.GPS_PROVIDER)  
+                || locManager  
+                        .isProviderEnabled(android.location.LocationManager.NETWORK_PROVIDER)  
+        )
+	    {
+	    	System.out.println("source setted!!!!"); 
+	    }
+	    else
+	    	System.out.println("source???");  
+	    	    
+	    
 	}
+	
+	
+
 /*
 	//点击事件监听器
 	private class MapClickedListener implements OnClickListener

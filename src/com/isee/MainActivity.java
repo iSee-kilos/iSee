@@ -1,9 +1,9 @@
 package com.isee;
 
-
 import com.isee.R;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -17,150 +17,75 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity 
 {
 
-    private int selection = 1;
-	private int oldSelection = -1;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
 
-	private String[] names = null;
-	private String[] classes = null;
-	
-	private ActionBarDrawerToggle drawerToggle = null;
-	private DrawerLayout drawer = null;
-	private ListView navList = null;
-	
-	private static final String OPENED_KEY = "OPENED_KEY";
-	private SharedPreferences prefs = null;
-	private Boolean opened = null;
-    
-    
-    @Override
-    protected void onCreate(Bundle savedInstanceState) 
-    {
 		super.onCreate(savedInstanceState);
+		// 隐藏android系统的状态栏  
+		//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		 // 隐藏应用程序的标题栏，即当前activity的标题栏 this.requestWindowFeature(Window.FEATURE_NO_TITLE)
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);
+	    //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 		
+	}
+
+	//private ImageView Search_Buttom;
+	private TextView TV1;
+	 
+	public void Search_Buttom_Onclick(View view){
+		TV1 = (TextView) findViewById(R.id.test1);
+		TV1.setText("Search");
 		
-		names = getResources().getStringArray(R.array.nav_names);
-		classes = getResources().getStringArray(R.array.nav_classes);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
-				.getThemedContext(), android.R.layout.simple_list_item_1, names);
+		Intent intent = new Intent();
+        intent.putExtra("name","LeiPei");    
+        /* 指定intent要启动的类 */
+        intent.setClass(MainActivity.this, SearchActivity.class);
+        /* 启动一个新的Activity */
+        MainActivity.this.startActivity(intent);
+        /* 关闭当前的Activity */
+        //MainActivity.this.finish();
+	}	
 
-		drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-		navList = (ListView) findViewById(R.id.drawer);
-		navList.setAdapter(adapter);
-		drawerToggle = new ActionBarDrawerToggle(this, drawer,
-				R.drawable.ic_drawer, R.string.open, R.string.close)
-		{
-			@Override
-			public void onDrawerClosed(View drawerView)
-			{
-				super.onDrawerClosed(drawerView);
-				updateContent();
-				invalidateOptionsMenu();
-				if(opened != null && opened == false)
-				{
-					opened = true;
-					if(prefs != null)
-					{
-						Editor editor = prefs.edit();
-						editor.putBoolean(OPENED_KEY, true);
-						editor.apply();
-					}
-				}
-			}
+//	public void Photo_Buttom_Onclick(View view){
+//		TV1 = (TextView) findViewById(R.id.test1);
+//		TV1.setText("Photo");
+//		Intent intent = new Intent();
+//        intent.putExtra("name","LeiPei");    
+//        /* 指定intent要启动的类 */
+//        intent.setClass(MainActivity.this, PhotoActivity.class);
+//        /* 启动一个新的Activity */
+//        MainActivity.this.startActivity(intent);
+//        /* 关闭当前的Activity */
+//        MainActivity.this.finish();
+//	}	
+//	
+//	public void Draw_Buttom_Onclick(View view){
+//		TV1 = (TextView) findViewById(R.id.test1);
+//		TV1.setText("Draw");
+//		Intent intent = new Intent();
+//        intent.putExtra("name","LeiPei");    
+//        /* 指定intent要启动的类 */
+//        intent.setClass(MainActivity.this, DrawActivity.class);
+//        /* 启动一个新的Activity */
+//        MainActivity.this.startActivity(intent);
+//        /* 关闭当前的Activity */
+//        MainActivity.this.finish(); 
+//	}	
+//	
+//	public void View_Buttom_Onclick(View view){
+//		TV1 = (TextView) findViewById(R.id.test1);
+//		TV1.setText("View");
+//		//Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//		  
+//        //startActivityForResult(intent, 1); 
+//	}	
 
-			@Override
-			public void onDrawerOpened(View drawerView)
-			{
-				super.onDrawerOpened(drawerView);
-				getActionBar().setTitle(R.string.app_name);
-				invalidateOptionsMenu();
-			}
-		};
-		drawer.setDrawerListener(drawerToggle);
-
-		navList.setOnItemClickListener(new OnItemClickListener()
-		{
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					final int pos, long id)
-			{
-				selection = pos;
-				drawer.closeDrawer(navList);
-			}
-		});
-
-		updateContent();
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
-		
-		new Thread(new Runnable()
-		{
-
-			@Override
-			public void run()
-			{
-				prefs = getPreferences(MODE_PRIVATE);
-				opened = prefs.getBoolean(OPENED_KEY, false);
-				if(opened == false)
-				{
-					drawer.openDrawer(navList);
-				}
-			}
-			
-		}).start();
-
-    }
-    
-    @Override
-	protected void onPostCreate(Bundle savedInstanceState)
-	{
-		super.onPostCreate(savedInstanceState);
-		drawerToggle.syncState();
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		if(drawerToggle.onOptionsItemSelected(item))
-		{
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu)
-	{
-		if(drawer != null && navList != null)
-		{
-			MenuItem item = menu.findItem(R.id.add);
-			if(item != null)
-			{
-				item.setVisible(!drawer.isDrawerOpen(navList));
-			}
-		}
-		return super.onPrepareOptionsMenu(menu);
-	}
-
-	private void updateContent()
-	{
-		if (oldSelection != selection)
-		{
-			getActionBar().setTitle(names[selection]);
-			Toast.makeText(getApplicationContext(), names[selection], Toast.LENGTH_LONG).show();
-			FragmentTransaction tx = getSupportFragmentManager()
-					.beginTransaction();
-			tx.replace(R.id.main,
-					Fragment.instantiate(MainActivity.this, classes[selection]));
-			tx.commit();
-			oldSelection = selection;
-		}
-	}
 }
