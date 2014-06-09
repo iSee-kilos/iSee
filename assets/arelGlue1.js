@@ -1,5 +1,5 @@
-var earthOpened = false;
-var earth, earthOcclusion, earthIndicators;
+//var earthOpened = false;
+//var earth, earthOcclusion, earthIndicators;
 
 arel.sceneReady(function()
 {
@@ -14,40 +14,46 @@ arel.sceneReady(function()
 			document.getElementById('info').style.display="block";
 	});
 
-	var Scale = new arel.Vector3D(11.0,11.0,11.0);
-    var Rotation = new arel.Rotation();
-    Rotation.setFromEulerAngleDegrees(new arel.Vector3D(90.0,0.0,0.0));
+//	var Scale = new arel.Vector3D(11.0,11.0,11.0);
+//    var Rotation = new arel.Rotation();
+//    Rotation.setFromEulerAngleDegrees(new arel.Vector3D(90.0,0.0,0.0));
+//	
+//    // get earth model reference
+//	earth = arel.Object.Model3D.create("1","Earth.zip");
+//	earth.setVisibility(true);
+//	earth.setCoordinateSystemID(1);
+//	earth.setScale(Scale);
+//    earth.setRotation(Rotation);
+//    arel.Scene.addObject(earth);        
+//    earth.setPickingEnabled(true);
+//    
+//    // get earth occlusion model reference
+//    earthOcclusion = arel.Object.Model3D.create("2","Earth_Occlusion.zip");
+//    earthOcclusion.setVisibility(true);
+//    earthOcclusion.setCoordinateSystemID(1);
+//    earthOcclusion.setScale(Scale);
+//    earthOcclusion.setRotation(Rotation);
+//    earthOcclusion. setOccluding(true);
+//    arel.Scene.addObject(earthOcclusion);        
+//    earthOcclusion.setPickingEnabled(true);
+//    
+//    // get earth indicators model reference
+//    earthIndicators = arel.Object.Model3D.create("3","EarthIndicators.zip");
+//    earthIndicators.setVisibility(true);
+//    earthIndicators.setCoordinateSystemID(1);
+//    earthIndicators.setScale(Scale);
+//    earthIndicators.setRotation(Rotation);
+//    arel.Scene.addObject(earthIndicators);        
+//    earthIndicators.setPickingEnabled(true);
+    
+    var image = arel.Object.Model3D.createFromImage("image","frame.png");
+	image.setVisibility(true);
+	image.setCoordinateSystemID(1);
+	image.setScale(new arel.Vector3D(3.0,3.0,3.0));
+	arel.Scene.addObject(image);
 	
-    // get earth model reference
-	earth = arel.Object.Model3D.create("1","Earth.zip");
-	earth.setVisibility(true);
-	earth.setCoordinateSystemID(1);
-	earth.setScale(Scale);
-    earth.setRotation(Rotation);
-    arel.Scene.addObject(earth);        
-    earth.setPickingEnabled(true);
-    
-    // get earth occlusion model reference
-    earthOcclusion = arel.Object.Model3D.create("2","Earth_Occlusion.zip");
-    earthOcclusion.setVisibility(true);
-    earthOcclusion.setCoordinateSystemID(1);
-    earthOcclusion.setScale(Scale);
-    earthOcclusion.setRotation(Rotation);
-    earthOcclusion. setOccluding(true);
-    arel.Scene.addObject(earthOcclusion);        
-    earthOcclusion.setPickingEnabled(true);
-    
-    // get earth indicators model reference
-    earthIndicators = arel.Object.Model3D.create("3","EarthIndicators.zip");
-    earthIndicators.setVisibility(true);
-    earthIndicators.setCoordinateSystemID(1);
-    earthIndicators.setScale(Scale);
-    earthIndicators.setRotation(Rotation);
-    arel.Scene.addObject(earthIndicators);        
-    earthIndicators.setPickingEnabled(true);
-    
     //set a listener on the metaio man
-    arel.Events.setListener(earth, function(obj, type, params){handleEarthEvents(obj, type, params);});
+    //arel.Events.setListener(earth, function(obj, type, params){handleEarthEvents(obj, type, params);});
 
 });
 
@@ -72,22 +78,25 @@ function trackingHandler(type, param)
 function handleEarthEvents(obj, type, param)
 {
 	//check if there is tracking information available
-	if(type && type === arel.Events.Object.ONTOUCHSTARTED)
-	{
-		if (!earthOpened)
-		{
-			arel.Scene.getObject("1").startAnimation("Open");
-			arel.Scene.getObject("3").startAnimation("Grow");
-			earthOpened = true;
-		}
-		else
-		{
-			arel.Scene.getObject("1").startAnimation("Close");
-			arel.Scene.getObject("3").startAnimation("Shrink");
-			earthOpened = false;
-		}
-		
-	}
+	//arel.Scene.getObject("image").setVisibility(true);
+	
+	
+//	if(type && type === arel.Events.Object.ONTOUCHSTARTED)
+//	{
+//		if (!earthOpened)
+//		{
+//			arel.Scene.getObject("1").startAnimation("Open");
+//			arel.Scene.getObject("3").startAnimation("Grow");
+//			earthOpened = true;
+//		}
+//		else
+//		{
+//			arel.Scene.getObject("1").startAnimation("Close");
+//			arel.Scene.getObject("3").startAnimation("Shrink");
+//			earthOpened = false;
+//		}
+//		
+//	}
 //	else if(type && type === arel.Events.Object.ONANIMATIONENDED)
 //	{
 //		if (param.animationname == "Open")

@@ -22,8 +22,7 @@ import com.metaio.tools.io.AssetsManager;
 
 public class ArActivity extends ARViewActivity 
 {
-
-	private IGeometry mEarth;
+	private IGeometry mModel;
 	private IGeometry mEarthOcclusion;
 	private IGeometry mEarthIndicators;
 	private boolean mEarthOpened;
@@ -68,73 +67,42 @@ public class ArActivity extends ARViewActivity
 		return R.layout.activity_ar; 
 	}
 	
+	
+
 	@Override
 	protected void loadContents() 
 	{
 		try
 		{
-			
 			// Getting a file path for tracking configuration XML file
 			String trackingConfigFile = AssetsManager.getAssetPath(getApplicationContext(), "TrackingData_MarkerlessFast.xml");
 			
 			// Assigning tracking configuration
 			boolean result = metaioSDK.setTrackingConfiguration(trackingConfigFile); 
 			MetaioDebug.log("Tracking data loaded: " + result); 
-			
-			final float scale = 11.f;
-			final Rotation rotation = new Rotation(new Vector3d((float)Math.PI/2, 0.0f, 0.0f));
 	        
 			// Getting a file path for a 3D geometry
-			final String earthModel = AssetsManager.getAssetPath(getApplicationContext(), "Earth.zip");			
-			if (earthModel != null) 
+			String imagePath = AssetsManager.getAssetPath(getApplicationContext(), "frame.png");			
+			if (imagePath != null)
 			{
-				// Loading 3D geometry
-				mEarth = metaioSDK.createGeometry(earthModel);
-				if (mEarth != null) 
+				mModel = metaioSDK.createGeometryFromImage(imagePath);
+				if (mModel != null)
 				{
-					// Set geometry properties
-					mEarth.setScale(scale);
-					mEarth.setRotation(rotation);
-					
+					mModel.setScale(3.0f);
+					MetaioDebug.log("Loaded geometry "+imagePath);
 				}
-				else
-					MetaioDebug.log(Log.ERROR, "Error loading earth geometry: " + mEarth);
-			}
-			
-			final String earthOcclusionModel = AssetsManager.getAssetPath(getApplicationContext(), "Earth_Occlusion.zip");
-			if (earthOcclusionModel != null)
-			{
-				mEarthOcclusion = metaioSDK.createGeometry(earthOcclusionModel);
-				if (mEarthOcclusion != null)
-				{
-					mEarthOcclusion.setScale(scale);
-					mEarthOcclusion.setRotation(rotation);
-					mEarthOcclusion.setOcclusionMode(true);
+				else {
+					MetaioDebug.log(Log.ERROR, "Error loading geometry: "+imagePath);
 				}
 			}
-			else
-				MetaioDebug.log(Log.ERROR, "Error loading earth occlusion geometry: " + mEarthOcclusion);
-			
-			final String earthIndicatorsModel = AssetsManager.getAssetPath(getApplicationContext(), "EarthIndicators.zip");
-			if (earthIndicatorsModel != null)
-			{
-				mEarthIndicators = metaioSDK.createGeometry(earthIndicatorsModel);
-				if (mEarthIndicators != null)
-				{
-					mEarthIndicators.setScale(scale);
-					mEarthIndicators.setRotation(rotation);
-				}
-				else
-					MetaioDebug.log(Log.ERROR, "Error loading earth indicator geometry: " + mEarthIndicators);
-			}
-			
-		}       
+		}
 		catch (Exception e)
 		{
-			
+			e.printStackTrace();
 		}
 	}
 	
+		
   
 	@Override
 	protected void onGeometryTouched(IGeometry geometry) 
@@ -145,13 +113,13 @@ public class ArActivity extends ARViewActivity
 		{
 			if (!mEarthOpened)
 			{
-				mEarth.startAnimation("Open", false);
+				mModel.startAnimation("Open", false);
 				mEarthIndicators.startAnimation("Grow", false);
 				mEarthOpened = true;
 			}
 			else
 			{
-				mEarth.startAnimation("Close", false);
+				mModel.startAnimation("Close", false);
 				mEarthIndicators.startAnimation("Shrink", false);
 				mEarthOpened = false;
 			}

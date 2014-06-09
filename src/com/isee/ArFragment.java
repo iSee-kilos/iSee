@@ -1,7 +1,7 @@
 package com.isee;
 
 import com.isee.R;
-import com.metaio.ar.ArActivity;
+import com.metaio.ar.ArMainActivity;
 
 
 
@@ -33,7 +33,7 @@ public class ArFragment extends Fragment
 		btn.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v)
             {
-            	Intent intent = new Intent(view.getContext(), ArActivity.class);
+            	Intent intent = new Intent(view.getContext(), ArMainActivity.class);
         		startActivity(intent);
             }
         });
