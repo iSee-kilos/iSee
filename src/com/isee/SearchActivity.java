@@ -23,7 +23,7 @@ import android.widget.Toast;
 public class SearchActivity extends FragmentActivity 
 {
 
-    private int selection = 1;
+    private int selection = 0;
 	private int oldSelection = -1;
 
 	private String[] names = null;
@@ -159,7 +159,7 @@ public class SearchActivity extends FragmentActivity
 					.beginTransaction();
 			tx.replace(R.id.main,
 					Fragment.instantiate(SearchActivity.this, classes[selection]));
-			tx.commit();
+			tx.commitAllowingStateLoss();
 			oldSelection = selection;
 		}
 	}

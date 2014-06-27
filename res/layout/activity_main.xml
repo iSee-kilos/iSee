@@ -5,7 +5,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.isee_v1.MainActivity"
     tools:ignore="MergeRootFrame" >
-
+<ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType = "fitXY"
+        android:src="@drawable/abc_ab_bottom_solid_light_holo" />
+    
     <TextView
         android:id="@+id/test1"
         android:layout_width="wrap_content"
@@ -52,6 +58,8 @@
         android:layout_gravity="center|center_horizontal"
         android:onClick="View_Buttom_Onclick"
         android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+    
 
 </FrameLayout>
 

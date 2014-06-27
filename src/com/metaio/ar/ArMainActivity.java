@@ -1,12 +1,15 @@
 // Copyright 2007-2014 metaio GmbH. All rights reserved.
 package com.metaio.ar;
 
+import java.io.File;
 import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StatFs;
 import android.util.Log;
 
 import com.isee.BuildConfig;
@@ -82,8 +85,24 @@ public class ArMainActivity extends Activity
 			else
 			{
 				// create AREL template and present it
-				final String arelConfigFilePath = AssetsManager.getAssetPath(getApplicationContext(), "arelConfig.xml");
+				String arelConfigFilePath = null;
+					
+				File sdDir = null; 
+				boolean sdCardExist = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED); 
+				if (sdCardExist)   
+				{                               
+					sdDir = Environment.getExternalStorageDirectory();//»ñÈ¡¸úÄ¿Â¼
+					arelConfigFilePath = sdDir.getPath() + "/data/isee/data/arelConfig.xml";
+					System.out.println(arelConfigFilePath + "!!!");
+				}
+				else
+				{
+					arelConfigFilePath = AssetsManager.getAssetPath(getApplicationContext(), "arelConfig.xml");					
+				}
+				
+				
 				MetaioDebug.log("arelConfig to be passed to intent: "+arelConfigFilePath);
+				System.out.println(arelConfigFilePath + "!!!");
 				Intent intent = new Intent(getApplicationContext(), ARELViewActivity.class);
 				intent.putExtra(getPackageName()+".AREL_SCENE", arelConfigFilePath);
 				startActivity(intent);

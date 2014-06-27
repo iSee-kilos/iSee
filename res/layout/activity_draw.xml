@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/DrawContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.isee.DrawActivity"
+    tools:ignore="MergeRootFrame">
+
+    
+	
+    <ImageView
+        android:id="@+id/altered_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/abc_ab_solid_light_holo" />
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    />
+    
+    <fragment android:name="com.isee.DrawToolsBarFragment"  
+                android:id="@+id/draw_tools" 
+                android:layout_width="match_parent"
+        		android:layout_height="match_parent" />  
+    
+    <fragment android:name="com.isee.SetColorFragment"  
+                android:id="@+id/set_color" 
+                android:layout_width="match_parent"
+        		android:layout_height="match_parent" />  
+
+    <ImageView
+        android:id="@+id/Set_Color_Button"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center|center_horizontal"
+        android:layout_marginBottom="50px"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+    <ImageView
+        android:id="@+id/Draw_Tools_Bar_Button"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center|center_horizontal"
+        android:layout_marginBottom="50px"
+        android:layout_marginLeft="-185px"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+	<ImageView
+        android:id="@+id/Save_Button"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="185px"
+        android:layout_marginBottom="50px"
+        android:layout_gravity="bottom|center|center_horizontal"
+        android:onClick="Save_Button_Onclick"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+</FrameLayout>
+
