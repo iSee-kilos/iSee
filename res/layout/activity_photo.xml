@@ -3,6 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/default_background"
     tools:context="com.isee.PhotoActivity"
     tools:ignore="MergeRootFrame" >
 
@@ -14,47 +15,50 @@
     
     <ImageView
         android:id="@+id/Take_Pic_Buttom"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_marginLeft="-185px"
         android:layout_marginTop="185px"
+        android:layout_marginBottom="50px"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center|center_horizontal"
+        android:layout_gravity="bottom|center|center_horizontal"
         android:onClick="Take_Pic_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/take_photo" />
     
     <ImageView
         android:id="@+id/Show_View"
-        android:layout_width="200px"
-        android:layout_height="300px"
+        android:layout_width="600px"
+        android:layout_height="900px"
         android:layout_marginLeft="0px"
         android:layout_marginTop="0px"
 
         android:layout_gravity="center|center_horizontal"
         android:onClick="Take_Pic_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/photo_back_ground" />
     
     <ImageView
         android:id="@+id/Back_Buttom"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_marginLeft="185px"
         android:layout_marginTop="185px"
+        android:layout_marginBottom="50px"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center|center_horizontal"
+        android:layout_gravity="bottom|center|center_horizontal"
         android:onClick="Back_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/save_white" />
     
     <ImageView
         android:id="@+id/Draw_Pic_Buttom"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center|center_horizontal"
         android:layout_marginLeft="0px"
         android:layout_marginTop="185px"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center|center_horizontal"
+        android:layout_marginBottom="50px"
         android:onClick="Draw_Pic_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/merge" />
 
 </FrameLayout>
 

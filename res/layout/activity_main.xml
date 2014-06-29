@@ -50,7 +50,7 @@
         android:layout_marginTop="185px"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|center_horizontal"
-        android:onClick="Upload_Onclick"
+        android:onClick="Upload_Buttom_Onclick"
         android:src="@drawable/upload" />
 
     
