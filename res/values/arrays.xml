@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="nav_names">
+   <string-array name="nav_names">
         <item>Map</item>
         <item>Upload</item>
         <item>Match</item>
@@ -16,6 +16,6 @@
         <item>com.isee.ArFragment</item>
         <item>com.isee.SimpleAdapterFragment</item>
         <item>com.isee.SimpleAdapterFragment</item>
-    </string-array>
+    </string-array> 
 
 </resources>

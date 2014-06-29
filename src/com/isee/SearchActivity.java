@@ -4,26 +4,66 @@ package com.isee;
 import com.isee.R;
 
 import android.os.Bundle;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
+import android.app.FragmentManager;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
+
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+
 
 public class SearchActivity extends FragmentActivity 
 {
+	
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE); 
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  
+				WindowManager.LayoutParams.FLAG_FULLSCREEN); 
+		
+		setContentView(R.layout.activity_search);
+		
+		FragmentManager fm = getFragmentManager();  
+        
+        addShowHideListener(R.id.Map_Launch_Button, fm.findFragmentById(R.id.Map_Launch));  
+        addShowHideListener(R.id.Ar_Launch_Button, fm.findFragmentById(R.id.Ar_Launch)); 
+	}
+	
+    void addShowHideListener(int buttonId, final Fragment fragment) {  
+        //获取activity中的button  
+        final View button = (View)findViewById(buttonId);  
+        
+        FragmentTransaction ftra = getFragmentManager().beginTransaction();  
+        ftra.hide(fragment);  
+        ftra.commit();  
+        
+        button.setOnClickListener(new OnClickListener() {  
+        	
+            public void onClick(View v) {  
+            	FragmentTransaction ft = getFragmentManager().beginTransaction();  
+                /*为Fragment设置淡入淡出效果，Android开发网提示这里这两个动画资源是android内部资源无需我们手动定义。*/  
+                ft.setCustomAnimations(android.R.animator.fade_in,  
+                        android.R.animator.fade_out);    
+                  
+                if (fragment.isHidden()) {  
+                    ft.show(fragment);  
+                    //button.setText("隐藏");  
+                } else {  
+                    ft.hide(fragment);  
+                    
+                    //button.setText("显示");  
+                }  
+                ft.commit();  
+            }  
+        });  
+    }  
 
-    private int selection = 0;
+    /*private int selection = 0;
 	private int oldSelection = -1;
 
 	private String[] names = null;
@@ -42,6 +82,9 @@ public class SearchActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) 
     {
 		super.onCreate(savedInstanceState);
+		//requestWindowFeature(Window.FEATURE_NO_TITLE); 
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  
+                				WindowManager.LayoutParams.FLAG_FULLSCREEN); 
 		setContentView(R.layout.activity_search);
 		
 		
@@ -72,7 +115,7 @@ public class SearchActivity extends FragmentActivity
 						editor.apply();
 					}
 				}
-			}
+			} 
 
 			@Override
 			public void onDrawerOpened(View drawerView)
@@ -162,5 +205,5 @@ public class SearchActivity extends FragmentActivity
 			tx.commitAllowingStateLoss();
 			oldSelection = selection;
 		}
-	}
+	}*/
 }
