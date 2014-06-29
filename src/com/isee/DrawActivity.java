@@ -104,9 +104,7 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
         mPaint = new Paint();
         mPaint.setAlpha(0);
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        mPaint.setAntiAlias(true);
-        
-        
+        mPaint.setAntiAlias(true);      
 	}
 	private float downx = 0;
     private float downy = 0;

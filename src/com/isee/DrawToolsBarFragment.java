@@ -1,13 +1,11 @@
 package com.isee;
 
-
 import com.isee.SetColorFragment.OnColorChangedListener;
 
 import android.app.Activity;
 import android.app.Fragment;  
 
 import android.os.Bundle;  
-import android.os.Environment;
 import android.view.LayoutInflater;  
 import android.view.View;   
 import android.view.ViewGroup;  
@@ -73,6 +71,7 @@ public class DrawToolsBarFragment extends Fragment {
         
         for (int i = 0;i<24;i++){
         	/*final String imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/data/isee/Picture/Picture_"+ i +".png";
+        	final String imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/data/isee/Picture/Picture_"+ i +".png";
         	BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
             bmpFactoryOptions.inJustDecodeBounds = true; 
             Bitmap bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
@@ -94,8 +93,6 @@ public class DrawToolsBarFragment extends Fragment {
             	}
             });
             
-            //if (bmp != null && !bmp.isRecycled())            
-            	//bmp.recycle();  
         }
         
         
