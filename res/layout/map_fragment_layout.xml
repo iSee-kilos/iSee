@@ -38,5 +38,12 @@
 	            android:text="卫星视图" />
 	    </RadioGroup>
 	</LinearLayout>
+	
+	<ImageButton
+	    	 android:layout_gravity="right|bottom"
+             android:id="@+id/loction"  android:src="@drawable/location"  
+             android:layout_width="wrap_content"  
+             android:layout_height="wrap_content"  />
+	
 
 </FrameLayout>

@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.isee.PhotoActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:id="@+id/test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo" />
+    
+    <ImageView
+        android:id="@+id/Take_Pic_Buttom"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_marginLeft="-185px"
+        android:layout_marginTop="185px"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|center_horizontal"
+        android:onClick="Take_Pic_Onclick"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+    
+    <ImageView
+        android:id="@+id/Show_View"
+        android:layout_width="200px"
+        android:layout_height="300px"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="0px"
+
+        android:layout_gravity="center|center_horizontal"
+        android:onClick="Take_Pic_Onclick"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+    
+    <ImageView
+        android:id="@+id/Back_Buttom"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_marginLeft="185px"
+        android:layout_marginTop="185px"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|center_horizontal"
+        android:onClick="Back_Onclick"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+    
+    <ImageView
+        android:id="@+id/Draw_Pic_Buttom"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="185px"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|center_horizontal"
+        android:onClick="Draw_Pic_Onclick"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+</FrameLayout>
+

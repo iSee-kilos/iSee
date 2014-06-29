@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.isee_v1.MainActivity"
     tools:ignore="MergeRootFrame" >
-
-    <TextView
-        android:id="@+id/test1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
+<ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType = "fitXY"
+        android:src="@drawable/abc_ab_bottom_solid_light_holo" />
+    
     <ImageView
         android:id="@+id/Search_Buttom"
         android:layout_width="350px"
@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|center_horizontal"
         android:onClick="Search_Buttom_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/search" />
     <ImageView
         android:id="@+id/Photo_Buttom"
         android:layout_width="350px"
@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|center_horizontal"
         android:onClick="Photo_Buttom_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/photo" />
     <ImageView
         android:id="@+id/Draw_Buttom"
         android:layout_width="350px"
@@ -41,17 +41,19 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|center_horizontal"
         android:onClick="Draw_Buttom_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:src="@drawable/draw" />
     <ImageView
-        android:id="@+id/View_Buttom"
+        android:id="@+id/Upload_Buttom"
         android:layout_width="350px"
         android:layout_height="350px"
         android:layout_marginLeft="185px"
         android:layout_marginTop="185px"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|center_horizontal"
-        android:onClick="View_Buttom_Onclick"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:onClick="Upload_Onclick"
+        android:src="@drawable/upload" />
+
+    
 
 </FrameLayout>
 

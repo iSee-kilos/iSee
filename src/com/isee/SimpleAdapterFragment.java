@@ -2,10 +2,17 @@ package com.isee;
 
 import com.isee.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.os.Environment;
+
+
+
 
 
 import android.os.Bundle;
@@ -46,6 +53,40 @@ public class SimpleAdapterFragment extends ListFragment
 		items.add(map);
 	}
 	
+	
+	
+	public void writeFile(String fileName,String writestr) throws IOException
+	{ 
+		try
+		{
+			String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + fileName;
+			File file = new File(path);
+			
+			if (!file.exists())
+			{
+				file.createNewFile();
+			}
+			
+		    FileOutputStream fout = new FileOutputStream(file); 
+		
+		    byte [] bytes = writestr.getBytes(); 
+		
+		    fout.write(bytes); 
+		
+		    fout.close(); 
+		    
+		    System.out.println("write done!!!");	   
+		    
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		} 
+	} 
+
+	
+	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -56,6 +97,12 @@ public class SimpleAdapterFragment extends ListFragment
 	public void onActivityCreated(Bundle savedInstanceState)
 	{
 		super.onActivityCreated(savedInstanceState);
+		try {
+			writeFile("123.txt", "123456");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ListAdapter adapter = new SimpleAdapter(getActivity(), items, android.R.layout.simple_list_item_2, keys, controlIds );
 		setListAdapter(adapter);
 	}
