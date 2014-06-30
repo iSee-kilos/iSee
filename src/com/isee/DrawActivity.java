@@ -106,6 +106,10 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
         mPaint.setAlpha(0);
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         mPaint.setAntiAlias(true);      
+        
+        
+		if(bmp != null && !bmp.isRecycled())
+			bmp.recycle();
 	}
 	private float downx = 0;
     private float downy = 0;
@@ -396,7 +400,10 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
     }  
 
     public void Save_Button_Onclick(View view){
-    	
+    	if(alterBitmap != null && !alterBitmap.isRecycled())
+    		alterBitmap.recycle();
+		if(newbmp != null && !newbmp.isRecycled())
+			newbmp.recycle();
     	 //Save to file
        //String nname= imageFilePath.replace(".jpg", "_altered.png");
        String name= Environment.getExternalStorageDirectory().getAbsolutePath() +"/data/isee/data/frame.png";
@@ -405,8 +412,9 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
         	
         	//String name= DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))+".jpg";
         	File fileName = new File(name);
-        	FileOutputStream b = new FileOutputStream(fileName);  
-        	real_alterBitmap.compress(Bitmap.CompressFormat.PNG, 100, b);// 把数据写入文件 
+        	FileOutputStream b = new FileOutputStream(fileName); 
+        	Bitmap saved_bmp = Bitmap.createScaledBitmap(real_alterBitmap, 200, 300, true);
+        	saved_bmp.compress(Bitmap.CompressFormat.PNG, 100, b);// 把数据写入文件 
             b.flush();
             b.close();
         } catch (FileNotFoundException e) {  

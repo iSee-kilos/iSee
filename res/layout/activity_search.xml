@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity" >
 
-    <!--  <FrameLayout
+      <FrameLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -17,9 +17,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#000"
-        android:choiceMode="singleChoice"/>-->
+        android:choiceMode="singleChoice"/>
     
-    <fragment 
+    <!--<fragment 
         android:name="com.isee.MapFragment"  
         android:id="@+id/Map_Launch" 
         android:layout_width="match_parent"
@@ -51,5 +51,5 @@
         android:layout_marginLeft="-185px"
         android:src="@drawable/tools"
           />
-
+-->
 </android.support.v4.widget.DrawerLayout>

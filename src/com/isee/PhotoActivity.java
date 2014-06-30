@@ -50,6 +50,9 @@ public class PhotoActivity extends Activity {
         startActivityForResult(it, 0); 
 	}
 	
+    Bitmap bmp ;
+    Bitmap newbmp;
+    
     @Override  
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
     	if (RESULT_OK == resultCode) { 
@@ -58,12 +61,12 @@ public class PhotoActivity extends Activity {
             // Load up the image's dimensions not the image itself 
             BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
             bmpFactoryOptions.inJustDecodeBounds = true; 
-            Bitmap bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
+             bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
              
             // Decode it for real 
             bmpFactoryOptions.inJustDecodeBounds = false; 
             bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
-            Bitmap newbmp = Bitmap.createScaledBitmap(bmp, (int)200, (int)300, true);
+             newbmp = Bitmap.createScaledBitmap(bmp, (int)200, (int)300, true);
             iv.setImageBitmap(newbmp);
             
             try {
@@ -79,7 +82,7 @@ public class PhotoActivity extends Activity {
                 e.printStackTrace();  
             }
             
-            
+              
         }    
         
     } 
@@ -91,6 +94,10 @@ public class PhotoActivity extends Activity {
    			     Toast.LENGTH_SHORT).show();
 			return;
 		}
+		if(newbmp != null && !newbmp.isRecycled())
+			newbmp.recycle();
+		if(bmp != null && !bmp.isRecycled())
+			bmp.recycle();
     	Intent intent = new Intent();
         
 		intent.putExtra("file_location", imageFilePath);
@@ -108,6 +115,11 @@ public class PhotoActivity extends Activity {
    			     Toast.LENGTH_SHORT).show();
 			return;
 		}
+		
+		if(newbmp != null && !newbmp.isRecycled())
+			newbmp.recycle();
+		if(bmp != null && !bmp.isRecycled())
+			bmp.recycle();
 		Intent intent = new Intent();
 		
         intent.putExtra("file_location", imageFilePath);  

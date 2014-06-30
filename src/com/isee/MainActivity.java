@@ -65,7 +65,7 @@ public class MainActivity extends FragmentActivity
                 				WindowManager.LayoutParams.FLAG_FULLSCREEN); 
 		setContentView(R.layout.activity_main);
 		
-		InputStream istream = null;
+		/*InputStream istream = null;
         istream =  getClass().getResourceAsStream("/assets/default.jpg");
         Bitmap bmp = BitmapFactory.decodeStream(istream);
         try {
@@ -80,27 +80,31 @@ public class MainActivity extends FragmentActivity
             e.printStackTrace();  
         }catch (IOException e) {  
             e.printStackTrace();  
-        }
+        }*/
 		Intent intent = getIntent();
 		String name=  intent.getStringExtra("file_location");
 		if (name != null && !name.equals("null") ){
 			imageFilePath = name;
 		
-			// Load up the image's dimensions not the image itself 
-	        BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
-	        bmpFactoryOptions.inJustDecodeBounds = true; 
-	        bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
-	        // Decode it for real 
-	        bmpFactoryOptions.inJustDecodeBounds = false; 
-	        bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
+			
         }
-
+		// Load up the image's dimensions not the image itself 
+        BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
+        bmpFactoryOptions.inJustDecodeBounds = true; 
+        Bitmap bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
+        // Decode it for real 
+        bmpFactoryOptions.inJustDecodeBounds = false; 
+        bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
+        
         float screenWidth  = getWindowManager().getDefaultDisplay().getWidth();       // ÆÁÄ»¿í£¨ÏñËØ£¬Èç£º480px£©  
 		float screenHeight = getWindowManager().getDefaultDisplay().getHeight();
 		Bitmap newbmp = Bitmap.createScaledBitmap(bmp, (int)screenWidth, (int)screenHeight, true);
 		
 		image = (ImageView)findViewById(R.id.background);
 		image.setImageBitmap(newbmp);
+		
+		//if(newbmp != null && !newbmp.isRecycled())
+			//newbmp.recycle();  
 		
 	}
 

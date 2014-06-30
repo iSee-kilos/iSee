@@ -1,7 +1,7 @@
 package com.isee;
 
 
-import com.isee.R;
+/*import com.isee.R;
 
 import android.os.Bundle;
 import android.app.FragmentManager;
@@ -13,13 +13,33 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.app.FragmentTransaction;*/
+import com.isee.R;
 
+import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class SearchActivity extends FragmentActivity 
 {
 	
-	protected void onCreate(Bundle savedInstanceState) {
+	/*protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE); 
@@ -46,7 +66,7 @@ public class SearchActivity extends FragmentActivity
         	
             public void onClick(View v) {  
             	FragmentTransaction ft = getFragmentManager().beginTransaction();  
-                /*为Fragment设置淡入淡出效果，Android开发网提示这里这两个动画资源是android内部资源无需我们手动定义。*/  
+                //为Fragment设置淡入淡出效果，Android开发网提示这里这两个动画资源是android内部资源无需我们手动定义。 
                 ft.setCustomAnimations(android.R.animator.fade_in,  
                         android.R.animator.fade_out);    
                   
@@ -61,9 +81,9 @@ public class SearchActivity extends FragmentActivity
                 ft.commit();  
             }  
         });  
-    }  
+    }  */
 
-    /*private int selection = 0;
+    private int selection = 0;
 	private int oldSelection = -1;
 
 	private String[] names = null;
@@ -205,5 +225,5 @@ public class SearchActivity extends FragmentActivity
 			tx.commitAllowingStateLoss();
 			oldSelection = selection;
 		}
-	}*/
+	}
 }
