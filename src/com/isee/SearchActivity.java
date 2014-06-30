@@ -1,9 +1,9 @@
 package com.isee;
 
-
 import com.isee.R;
 
 import android.os.Bundle;
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class SearchActivity extends FragmentActivity 
+public class SearchActivity extends FragmentActivity
 {
 
     private int selection = 0;
@@ -36,14 +36,12 @@ public class SearchActivity extends FragmentActivity
 	private static final String OPENED_KEY = "OPENED_KEY";
 	private SharedPreferences prefs = null;
 	private Boolean opened = null;
-    
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
-		
 		
 		names = getResources().getStringArray(R.array.nav_names);
 		classes = getResources().getStringArray(R.array.nav_classes);
@@ -162,5 +160,37 @@ public class SearchActivity extends FragmentActivity
 			tx.commitAllowingStateLoss();
 			oldSelection = selection;
 		}
+	}	
+	
+	/**
+	 * Creates a dialog and shows it
+	 * 
+	 * @param exception
+	 *            The exception to show in the dialog
+	 * @param title
+	 *            The dialog title
+	 */
+	private void createAndShowDialog(Exception exception, String title) {
+		Throwable ex = exception;
+		if(exception.getCause() != null){
+			ex = exception.getCause();
+		}
+		createAndShowDialog(ex.getMessage(), title);
+	}
+
+	/**
+	 * Creates a dialog and shows it
+	 * 
+	 * @param message
+	 *            The dialog message
+	 * @param title
+	 *            The dialog title
+	 */
+	private void createAndShowDialog(String message, String title) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setMessage(message);
+		builder.setTitle(title);
+		builder.create().show();
 	}
 }
