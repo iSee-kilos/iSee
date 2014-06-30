@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import com.isee.R;
 import com.metaio.ar.ArMainActivity;
+import com.connector.Connector;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
@@ -45,7 +46,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 public class MapFragment extends Fragment 
 {
-    
     private RadioGroup rg_mapType;
     GoogleMap mMap;
     private CameraPosition cameraPosition;
@@ -59,6 +59,7 @@ public class MapFragment extends Fragment
     private View view;
     
     private ImageButton loction_Btn;
+    private Connector connector;
     
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -133,6 +134,7 @@ public class MapFragment extends Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         context = activity;
+        connector = new Connector(context);
     }
     
     
@@ -362,7 +364,7 @@ public class MapFragment extends Fragment
 	    loction_Btn = (ImageButton) view.findViewById(R.id.loction);  
 	}
 	
-	private void setMarker(LatLng latlng, String picID)
+	public void setMarker(LatLng latlng, String picID)
 	{
 
 	    markerOpt = new MarkerOptions();
@@ -381,25 +383,28 @@ public class MapFragment extends Fragment
 	    mMap.clear();
 	    markerOpt = new MarkerOptions();
 	    //定位石家庄
-	    double dLong = 114.51500;
-	    double dLat = 38.042000;
+	    double dLong = 121.4300024;
+	    double dLat = 31.0200251;
 	    if(location != null)
 	    {
 			//获取经度
 			dLong = location.getLongitude();
 			//获取纬度
-			dLat = location.getLatitude();			
+			dLat = location.getLatitude();
 	    }	    
+
 	    markerOpt.position(new LatLng(dLat, dLong));
 	    markerOpt.draggable(false);
 	    markerOpt.visible(true);
 	    markerOpt.anchor(0.5f, 0.5f);//设为图片中心
 	    markerOpt.icon(BitmapDescriptorFactory.fromResource(android.R.drawable.ic_menu_mylocation));
 	    mMap.addMarker(markerOpt);
-	    
-	    setMarker(new LatLng(31.0200251, 121.4300024), "1");
-	    setMarker(new LatLng(31.0260121, 121.4330014), "2");
-	    setMarker(new LatLng(31.0209309, 121.4360022), "3");
+	    System.out.println("got here!1");
+	    connector.SearchAround(31.0200251, 121.4300024, 0.0000006, this);
+	    System.out.println("got here!2");
+	//    setMarker(new LatLng(31.0200251, 121.4300024), "1");
+	//    setMarker(new LatLng(31.0260121, 121.4330014), "2");
+	//    setMarker(new LatLng(31.0209309, 121.4360022), "3");
 	    
 	    //将摄影机移动到指定的地理位置
 	    cameraPosition = new CameraPosition.Builder()

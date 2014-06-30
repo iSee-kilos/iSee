@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity" >
 
-      <FrameLayout
+    <FrameLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -18,38 +18,5 @@
         android:layout_gravity="start"
         android:background="#000"
         android:choiceMode="singleChoice"/>
-    
-    <!--<fragment 
-        android:name="com.isee.MapFragment"  
-        android:id="@+id/Map_Launch" 
-        android:layout_width="match_parent"
-		android:layout_height="match_parent" />  
-    
-    <fragment
-        android:id="@+id/Ar_Launch"
-        android:name="com.isee.ArFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    
-    <ImageView
-        android:id="@+id/Ar_Launch_Button"
-        android:layout_width="100px"
-        android:layout_height="100px"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom|center|center_horizontal"
-        android:layout_marginLeft="185px"
-        android:layout_marginBottom="50px"
-        android:src="@drawable/set_color" />
 
-    <ImageView
-        android:id="@+id/Map_Launch_Button"
-        android:layout_width="100px"
-        android:layout_height="100px"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom|center|center_horizontal"
-        android:layout_marginBottom="50px"
-        android:layout_marginLeft="-185px"
-        android:src="@drawable/tools"
-          />
--->
 </android.support.v4.widget.DrawerLayout>
