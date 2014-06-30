@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 public class PhotoActivity extends Activity {
@@ -62,15 +63,10 @@ public class PhotoActivity extends Activity {
             // Decode it for real 
             bmpFactoryOptions.inJustDecodeBounds = false; 
             bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
-            //tmap bitmap = getLoacalBitmap(imageFilePath);
-    		//Bitmap newbmp = Bitmap.createScaledBitmap(bmp, (int)screenWidth, (int)screenHeight, true);
-            // Display it
-            Bitmap newbmp = Bitmap.createScaledBitmap(bmp, (int)iv.getWidth(), (int)iv.getHeight(), true);
+            Bitmap newbmp = Bitmap.createScaledBitmap(bmp, (int)200, (int)300, true);
             iv.setImageBitmap(newbmp);
-            //delete(bitmap);
             
             try {
-            	//String name= imageFilePath.replace(".jpg", "_Scaled.jpg");
             	String name= Environment.getExternalStorageDirectory().getAbsolutePath() +"/data/isee/data/target.jpg";
             	File fileName = new File(name);
             	FileOutputStream b = new FileOutputStream(fileName);  
@@ -82,14 +78,20 @@ public class PhotoActivity extends Activity {
             }catch (IOException e) {  
                 e.printStackTrace();  
             }
+            
+            
         }    
         
     } 
     
     
     public void Back_Onclick(View view){
-		Intent intent = new Intent();
-		//intent.putExtra("name","LeiPei");
+		if (imageFilePath.equals("null") ){
+			Toast.makeText(getApplicationContext(), "请先拍照！！",
+   			     Toast.LENGTH_SHORT).show();
+			return;
+		}
+    	Intent intent = new Intent();
         
 		intent.putExtra("file_location", imageFilePath);
         /* 指定intent要启动的类 */
@@ -101,6 +103,11 @@ public class PhotoActivity extends Activity {
 	}	
 	
 	public void Draw_Pic_Onclick(View view){
+		if (imageFilePath.equals("null") ){
+			Toast.makeText(getApplicationContext(), "请先拍照！！",
+   			     Toast.LENGTH_SHORT).show();
+			return;
+		}
 		Intent intent = new Intent();
 		
         intent.putExtra("file_location", imageFilePath);  

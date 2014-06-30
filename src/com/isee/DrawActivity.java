@@ -31,6 +31,7 @@ import android.view.View.OnTouchListener;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.PorterDuff;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class DrawActivity extends Activity implements OnColorChangedListener{
 	
@@ -166,7 +167,7 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
 			            on_touch_point = 1;
 			            click_count++;
 			            if(click_count == 1)
-			            start_time = System.currentTimeMillis();
+			            	start_time = System.currentTimeMillis();
 			            break;
 			        case MotionEvent.ACTION_MOVE:
 			            // Â·¾¶»­°å
@@ -210,13 +211,17 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
 			            on_touch_point = 0;
 			            picture_source = Bitmap.createBitmap(altered_picture);
 			            
-			            if(click_count == 2 && 400 >= System.currentTimeMillis()-start_time){
+			            if(click_count == 2 && 1000 >= System.currentTimeMillis()-start_time){
 			            	click_count = 0;
 			            	real_canvas.drawBitmap(altered_picture, curr_pic_x, curr_pic_y, paint);
 			            	canvas.drawBitmap(newbmp, matrix, paint);
 				    		canvas.drawBitmap(real_alterBitmap, matrix, paint);
 				    		altered_image.invalidate();
 				    		curr_mode = Mode.plain;
+				    		
+				    		
+				    		Toast.makeText(getApplicationContext(), "Í¼ÏñÒÑÕ³Ìù",
+				    			     Toast.LENGTH_SHORT).show();
 				    		
 				    		/*FragmentManager fm = getFragmentManager(); 
 				        	FragmentTransaction ftra = getFragmentManager().beginTransaction();  
@@ -269,7 +274,6 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
 	            
 	            altered_image.invalidate();// Ë¢ÐÂ
 	            break;
-	       // case MotionEvent.
 	
 	        default:
 	            break;

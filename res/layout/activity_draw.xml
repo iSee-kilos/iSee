@@ -23,7 +23,7 @@
 		android:layout_marginLeft="20px"
         android:layout_marginRight="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="150px" />  
+        android:layout_marginBottom="200px" />  
     
     <fragment
         android:id="@+id/set_color"
@@ -33,12 +33,12 @@
         android:layout_marginLeft="20px"
         android:layout_marginRight="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="150px" />
+        android:layout_marginBottom="200px" />
 
     <ImageView
         android:id="@+id/Set_Color_Button"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_centerHorizontal="true"
         android:layout_gravity="bottom|center|center_horizontal"
         android:layout_marginBottom="50px"
@@ -46,18 +46,19 @@
 
     <ImageView
         android:id="@+id/Draw_Tools_Bar_Button"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_centerHorizontal="true"
         android:layout_gravity="bottom|center|center_horizontal"
         android:layout_marginBottom="50px"
         android:layout_marginLeft="-185px"
-        android:src="@drawable/tools" />
+        android:src="@drawable/tools"
+          />
 
 	<ImageView
         android:id="@+id/Save_Button"
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="185px"
         android:layout_marginBottom="50px"
