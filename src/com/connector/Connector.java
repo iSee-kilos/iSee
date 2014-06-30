@@ -57,8 +57,10 @@ public class Connector {
 		CountDownLatch latch = new CountDownLatch(1);
 		Thread req = new Thread(new GeoInfoRequirer(0, null, latitude, longtitude, latch));
 		req.start();
+		System.out.println("acquiring...");
 		try {
-			latch.await(3 ,TimeUnit.SECONDS);
+			latch.await();
+			System.out.println(latch.getCount());
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,15 +68,18 @@ public class Connector {
 		if(geoInfo == null){
 			return -1;
 		}
+		System.out.println("getGeoInfo");
 		//----------------------------
+		System.out.println("uploading target...");
 		String id = geoInfo.getId();
 		if(uploadBlob(id + "_target.jpg", targetPath) < 0)
         	return -1;
-        System.out.println("1success");
+		System.out.println("uploading fram...");
         if(uploadBlob(id + "_frame.png", framePath) < 0)
         	return -1;
         System.out.println("2success");
         //-------------------------------------
+        System.out.println("confirming...");
 		latch = new CountDownLatch(1);
 		req = new Thread(new GeoInfoRequirer(1, geoInfo.getId(), latitude, longtitude, latch));
 		geoInfo = null;
@@ -109,9 +114,11 @@ public class Connector {
 			// TODO Auto-generated method stub
 			GeoInfo gi = new GeoInfo(latitude, longtitude);
 			if(type == 0){
+				System.out.println("Inserting... ");
 				mGeoInfoTable.insert(gi, new MyTableOperationCallback(latch));
 			}else{
 				gi.setId(id);
+				System.out.println("updating... ");
 				mGeoInfoTable.update(gi, new MyTableOperationCallback(latch));
 			}
 		}
@@ -121,13 +128,16 @@ public class Connector {
 		CountDownLatch myLatch;
 		public MyTableOperationCallback(CountDownLatch latch){
 			this.myLatch = latch;
+			System.out.println(myLatch.getCount());
 		}
 		@Override
 		public void onCompleted(GeoInfo entity, Exception exception, ServiceFilterResponse response) {
+			System.out.println("Come Back");
 			if (exception == null) {
 				geoInfo = entity;
 			}
 			myLatch.countDown();
+			System.out.println(myLatch.getCount());
 		}
 	}
 	

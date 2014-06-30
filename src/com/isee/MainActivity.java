@@ -6,8 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.connector.Connector;
 import com.isee.R;
 
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.content.Intent;
@@ -54,6 +56,8 @@ public class MainActivity extends FragmentActivity
 	public SurfaceHolder holder;
 	private String imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/data/isee/default.jpg";
 	private ImageView image;
+	private double latitude;
+	private double longitude;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +89,8 @@ public class MainActivity extends FragmentActivity
 		String name=  intent.getStringExtra("file_location");
 		if (name != null && !name.equals("null") ){
 			imageFilePath = name;
-		
-			
+			latitude = intent.getDoubleExtra("photo_latitude", 0);
+			longitude = intent.getDoubleExtra("photo_longitude", 0);
         }
 		// Load up the image's dimensions not the image itself 
         BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
@@ -207,7 +211,14 @@ public class MainActivity extends FragmentActivity
 	public void Upload_Buttom_Onclick(View view){
 		
 		//Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		  
+		System.out.println("start upload");
+		System.out.println(latitude);
+		System.out.println(longitude);
+		Connector connect = new Connector(this);
+		if(connect.UploadPicture(latitude, longitude, imageFilePath, imageFilePath.replace(".jpg", "_altered.png")) < 0){
+			Toast.makeText(getApplicationContext(), "ÉÏ´«Í¼Æ¬Ê§°Ü£¡",
+	   			     Toast.LENGTH_SHORT).show();
+		}
         //startActivityForResult(intent, 1); 
 	}	
 	

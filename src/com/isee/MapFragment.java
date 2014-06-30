@@ -100,33 +100,34 @@ public class MapFragment extends Fragment
 		//为RadioGroup的选中状态改变添加监听器
 		rg_mapType.setOnCheckedChangeListener(new ChangeMapTypeListener()); 
 		// 设置监听器，自动更新的最小时间为间隔N秒(1秒为1*1000，这样写主要为了方便)或最小位移变化超过N
-		locManager.requestLocationUpdates(bestProvider,  3 * 1000, 8, new LocationListener() {
+		locManager.requestLocationUpdates(bestProvider,  3 * 1000, 8, 
+			new LocationListener() {
 		    //当Provider的状态改变时
-		    @Override
-		    public void onStatusChanged(String provider, int status, Bundle extras) 
-		    {
-		    }
-		    @Override
-		    public void onProviderEnabled(String provider) 
-		    {
-				// 当GPS LocationProvider可用时，更新位置
-				location = locManager.getLastKnownLocation(provider);
-				if (provider != null)
-				{
-					Toast.makeText(context, "onUpdate:" + provider + "longitude:" + location.getLongitude() + " Latitude:"+location.getLatitude() , Toast.LENGTH_LONG).show();
-				}
-		    }
-		    @Override
-		    public void onProviderDisabled(String provider) 
-		    {
-		    	updateToNewLocation(null);
-		    }
-		    @Override
-		    public void onLocationChanged(Location location) 
-		    {
-		    	// 当GPS定位信息发生改变时，更新位置
-		    	updateToNewLocation(location);
-		    }
+				@Override
+			    public void onStatusChanged(String provider, int status, Bundle extras) 
+			    {
+			    }
+			    @Override
+			    public void onProviderEnabled(String provider) 
+			    {
+					// 当GPS LocationProvider可用时，更新位置
+					location = locManager.getLastKnownLocation(provider);
+					if (provider != null)
+					{
+						Toast.makeText(context, "onUpdate:" + provider + "longitude:" + location.getLongitude() + " Latitude:"+location.getLatitude() , Toast.LENGTH_LONG).show();
+					}
+			    }
+			    @Override
+			    public void onProviderDisabled(String provider) 
+			    {
+			    	updateToNewLocation(null);
+			    }
+			    @Override
+			    public void onLocationChanged(Location location) 
+			    {
+			    	// 当GPS定位信息发生改变时，更新位置
+			    	updateToNewLocation(location);
+			    }
 		    });
     }
     
@@ -353,7 +354,6 @@ public class MapFragment extends Fragment
 	    	Toast.makeText(context, "init:" + bestProvider + "\n" + "longitude:" + location.getLongitude() + " Latitude:"+location.getLatitude() , Toast.LENGTH_LONG).show();
 	    	System.out.println("经度："+location.getLatitude()+"  纬度：" + location.getLongitude());
 	    }
-	    
 	}
 	
 	

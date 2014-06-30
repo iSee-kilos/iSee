@@ -9,9 +9,14 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,7 +29,12 @@ import android.widget.Toast;
 
 
 public class PhotoActivity extends Activity {
-
+	LocationManager locationManager;
+	private Location location = null;
+	private Criteria criteria;
+	private String bestProvider;
+	private double latitude;
+	private double longitude;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,13 +42,31 @@ public class PhotoActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE); 
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  
 				WindowManager.LayoutParams.FLAG_FULLSCREEN); 
-		setContentView(R.layout.activity_photo);		
+		setContentView(R.layout.activity_photo);
+		initProvider();
+		
+	}
+	
+	private void UpdateLocation(Location location){
+		this.location = location;
+	}
+	
+	private boolean LocationDetected(){
+		if(location != null){
+			return true;
+		}
+		return false;
 	}
 	
 	ImageView iv = null; 
     String imageFilePath = "null";
 	
     public void Take_Pic_Onclick(View view){
+    	if(!LocationDetected()){
+    		Toast.makeText(getApplicationContext(), "无法确定位置，请打开GPS或网络！！",
+      			     Toast.LENGTH_SHORT).show();
+    		return;
+    	}
 		String name= "/data/isee/"+DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))+".jpg";
 		imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + name; 
         File imageFile = new File(imageFilePath); 
@@ -48,6 +76,7 @@ public class PhotoActivity extends Activity {
         it.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageFileUri);
         
         startActivityForResult(it, 0); 
+        
 	}
 	
     Bitmap bmp ;
@@ -73,7 +102,7 @@ public class PhotoActivity extends Activity {
             	String name= Environment.getExternalStorageDirectory().getAbsolutePath() +"/data/isee/data/target.jpg";
             	File fileName = new File(name);
             	FileOutputStream b = new FileOutputStream(fileName);  
-            	newbmp.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件 
+            	bmp.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件 
                 b.flush();
                 b.close();
             } catch (FileNotFoundException e) {  
@@ -101,6 +130,8 @@ public class PhotoActivity extends Activity {
     	Intent intent = new Intent();
         
 		intent.putExtra("file_location", imageFilePath);
+		intent.putExtra("photo_latitude", location.getLatitude());
+		intent.putExtra("photo_longitude", location.getLongitude());
         /* 指定intent要启动的类 */
         intent.setClass(PhotoActivity.this, MainActivity.class);
         /* 启动一个新的Activity */
@@ -123,6 +154,8 @@ public class PhotoActivity extends Activity {
 		Intent intent = new Intent();
 		
         intent.putExtra("file_location", imageFilePath);  
+        intent.putExtra("photo_latitude", location.getLatitude());
+		intent.putExtra("photo_longitude", location.getLongitude());
         /* 指定intent要启动的类 */
         intent.setClass(PhotoActivity.this, DrawActivity.class);
         /* 启动一个新的Activity */
@@ -130,4 +163,66 @@ public class PhotoActivity extends Activity {
         /* 关闭当前的Activity */
         PhotoActivity.this.finish(); 
 	}	
+	
+	private void initProvider() 
+	{
+	    locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);    
+        if (locationManager.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER)){
+        	System.out.println("GPS open");
+        }
+        if (locationManager.isProviderEnabled(android.location.LocationManager.NETWORK_PROVIDER))
+	    {
+	    	System.out.println("NETWORK open"); 
+	    }
+        criteria = new Criteria();  
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);  
+        criteria.setAltitudeRequired(false);  
+        criteria.setBearingRequired(false);
+        criteria.setCostAllowed(false);
+        criteria.setPowerRequirement(Criteria.POWER_LOW);
+	    bestProvider = locationManager.getBestProvider(criteria, true);
+	    if(bestProvider != null){
+	    	location = locationManager.getLastKnownLocation(bestProvider);
+	    	System.out.println(bestProvider);
+	    }
+	    else {
+	    	return;
+	    }
+	    locationManager.requestLocationUpdates(bestProvider, 1000, 0,
+			new LocationListener() {
+				@Override
+				public void onLocationChanged(Location location) {
+					// TODO Auto-generated method stub
+					UpdateLocation(location);
+					if(location == null){
+						System.out.println("!No Location!");
+					}
+					else {
+						System.out.println(location.getLatitude());
+						System.out.println(location.getLatitude());
+					}
+				}
+				@Override
+				public void onStatusChanged(String provider, int status,
+						Bundle extras) {
+					// TODO Auto-generated method stub
+					
+				}
+				@Override
+				public void onProviderEnabled(String provider) {
+					// TODO Auto-generated method stub
+					bestProvider = locationManager.getBestProvider(criteria, true);
+					location = locationManager.getLastKnownLocation(bestProvider);
+					Toast.makeText(getApplicationContext(), provider + "was opened",
+			   			     Toast.LENGTH_SHORT).show();
+				}
+				@Override
+				public void onProviderDisabled(String provider) {
+					// TODO Auto-generated method stub
+					Toast.makeText(getApplicationContext(), provider + "was closed",
+			   			     Toast.LENGTH_SHORT).show();
+					bestProvider = locationManager.getBestProvider(criteria, true);
+				}
+			});
+	}
 }

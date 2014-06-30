@@ -42,6 +42,8 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
     private Canvas real_canvas;
     private Bitmap alterBitmap;
     private Bitmap real_alterBitmap;
+    private double latitude;
+    private double longitude;
 
     Bitmap newbmp;
     Matrix matrix;
@@ -69,8 +71,11 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
 		
 		Intent intent = getIntent();
 		String name=  intent.getStringExtra("file_location");
-		if (name != null && !name.equals("null") )
+		if (name != null && !name.equals("null") ){
 			imageFilePath = name;
+			latitude = intent.getDoubleExtra("photo_latitude", 0);
+			longitude = intent.getDoubleExtra("photo_longitude", 0);
+		}
                 
         BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
         bmpFactoryOptions.inJustDecodeBounds = true; 
@@ -405,9 +410,9 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
 		if(newbmp != null && !newbmp.isRecycled())
 			newbmp.recycle();
     	 //Save to file
-       //String nname= imageFilePath.replace(".jpg", "_altered.png");
-       String name= Environment.getExternalStorageDirectory().getAbsolutePath() +"/data/isee/data/frame.png";
-       // String imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + nname; 
+       String name= imageFilePath.replace(".jpg", "_altered.png");
+       //String name= Environment.getExternalStorageDirectory().getAbsolutePath() +"/data/isee/data/frame.png";
+        //String name = Environment.getExternalStorageDirectory().getAbsolutePath() + nname; 
         try {
         	
         	//String name= DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))+".jpg";
@@ -426,6 +431,8 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
     	Intent intent = new Intent();
         
 		intent.putExtra("file_location", imageFilePath);
+		intent.putExtra("photo_latitude", latitude);
+		intent.putExtra("photo_longitude", longitude);
         /* 指定intent要启动的类 */
         intent.setClass(DrawActivity.this, MainActivity.class);
         /* 启动一个新的Activity */
