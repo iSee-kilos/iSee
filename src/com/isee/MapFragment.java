@@ -190,7 +190,7 @@ public class MapFragment extends Fragment
 		    	infoImage.setVisibility(View.GONE);
 		    }
 		    
-		/*    TextView infoSnippet = (TextView)mInfoWindowContent.findViewById(R.id.map_info_snippet);
+		    /*TextView infoSnippet = (TextView)mInfoWindowContent.findViewById(R.id.map_info_snippet);
 		    infoSnippet.setText(marker.getSnippet());*/
 		    return mInfoWindowContent;
 		}
