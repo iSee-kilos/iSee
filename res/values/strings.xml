@@ -12,4 +12,5 @@
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_draw">DrawActivity</string>
     <string name="title_activity_photo">PhotoActivity</string>
+    <string name="title_activity_popup">PopupActivity</string>
 </resources>

@@ -68,7 +68,11 @@
             android:name="com.isee.PhotoActivity"
             android:label="@string/title_activity_photo" >
         </activity>
-        
+         <activity
+            android:name="com.isee.RatingActivity"
+            android:label="@string/title_activity_popup" 
+            >
+        </activity>
         <meta-data 
             android:name="com.google.android.gms.version"
            	android:value="@integer/google_play_services_version" />

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:id="@+id/exit_layout" 
+	android:layout_width="280dp" 
+	android:layout_height="wrap_content" 
+	android:gravity="center_horizontal" 
+	android:orientation="vertical"  > 
+
+    <TextView
+        android:id="@+id/Rating_Source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+    
+    <ImageButton
+    	 android:layout_gravity="right|bottom"
+         android:id="@+id/Rating_plusone"  
+         android:src="@drawable/location"
+         android:onClick="Rating_Onclick"
+         android:layout_width="wrap_content"  
+         android:layout_height="wrap_content"  />
+    
+    <ImageButton
+    	 android:layout_gravity="left|bottom"
+         android:id="@+id/Lanuh_AR"  
+         android:src="@drawable/location"
+         android:onClick="Launch_Onclick"
+         android:layout_width="wrap_content"  
+         android:layout_height="wrap_content"  />
+    
+</LinearLayout> 

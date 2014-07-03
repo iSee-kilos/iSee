@@ -13,6 +13,9 @@ public class GeoInfo {
 	@com.google.gson.annotations.SerializedName("confirmed")
 	private boolean mConfirmed;
 	
+	@com.google.gson.annotations.SerializedName("like")
+	private int mLike;
+	
 	public GeoInfo(){
 	}
 	
@@ -20,6 +23,7 @@ public class GeoInfo {
 		mLatitude = latitude;
 		mLongtitude = longtitude;
 		mConfirmed = false;
+		mLike = 0;
 	}
 	
 	public String getId(){
@@ -52,5 +56,13 @@ public class GeoInfo {
 	
 	public void setConfirmed(boolean confirmed){
 		mConfirmed = confirmed;
-	} 
+	}
+	
+	public int getLike(){
+		return mLike;
+	}
+	
+	public void setLike(int like){
+		mLike = like;
+	}
 }

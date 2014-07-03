@@ -204,11 +204,30 @@ public class Connector {
 			System.out.println("yeah....");
 			if(exception == null){
 				for(GeoInfo gi : result){
-					mf.setMarker(new LatLng(gi.getLatitude(), gi.getLongtitude()), gi.getId());
+					mf.setMarker(new LatLng(gi.getLatitude(), gi.getLongtitude()), gi.getId(), gi.getLike());
 					System.out.println(gi.getId());
 				}
 			}
 		}
+	}
+	
+	public void LikeIt(String id){
+		if(mGeoInfoTable == null){
+			return;
+		}
+		mGeoInfoTable.where().field("id").eq(id).execute(new TableQueryCallback<GeoInfo>(){
+			@Override
+			public void onCompleted(List<GeoInfo> result, int count, Exception exception, ServiceFilterResponse response) {
+				// TODO Auto-generated method stub
+				if(exception == null){
+					for(GeoInfo gi : result){
+						gi.setLike(gi.getLike() + 1);
+						mGeoInfoTable.update(gi, null);
+						return;
+					}
+				}
+			}		
+		});
 	}
 	
 	public interface ConnectionListener{

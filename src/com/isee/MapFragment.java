@@ -13,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -167,6 +168,7 @@ public class MapFragment extends Fragment
 		public View getInfoContents(Marker marker) {
 			if (marker.getTitle().equals("me"))
 			{
+				//hahahaah
 				return null;
 			}
 			if(mInfoWindowContent == null){
@@ -175,7 +177,7 @@ public class MapFragment extends Fragment
 
 			int distance = (int)getDistance(location.getLatitude(), location.getLongitude(), marker.getPosition().latitude, marker.getPosition().longitude); 
 		    TextView infoTitle = (TextView)mInfoWindowContent.findViewById(R.id.map_info_title);
-		    infoTitle.setText("Distance : " + distance + "m");
+		    
 		    //check cache
 		    ImageView infoImage = (ImageView)mInfoWindowContent.findViewById(R.id.map_info_image);
 		    File sdDir = Environment.getExternalStorageDirectory();//获取跟目录
@@ -185,9 +187,11 @@ public class MapFragment extends Fragment
 		    	Bitmap bitmap = getLoacalBitmap(filename);
 		        infoImage.setImageBitmap(bitmap);
 		        infoImage.setVisibility(View.VISIBLE);
+		        infoTitle.setText("Distance : " + distance + "m\nRate: " + marker.getTitle());
 		    }
 		    else {
 		    	infoImage.setVisibility(View.GONE);
+		    	infoTitle.setText("Distance : " + distance + "m" + "\n Click to download.");
 		    }
 		    
 		    /*TextView infoSnippet = (TextView)mInfoWindowContent.findViewById(R.id.map_info_snippet);
@@ -220,28 +224,7 @@ public class MapFragment extends Fragment
 		public void onInfoWindowClick(Marker marker) 
 		{
 			int distance = (int)getDistance(location.getLatitude(), location.getLongitude(), marker.getPosition().latitude, marker.getPosition().longitude);
-		//	if(distance < 10){
-			/*if (pw != null) {                
-	            if (pw.isShowing()) {                    
-	                //关闭弹出窗口                    
-	                pw.dismiss();                
-	            }                 
-	            else {                   
-	                //在指定位置弹出窗口                   
-	                pw.showAtLocation(view.findViewById(R.id.rg_mapType), Gravity.CENTER, 0, 10);                
-	            }            
-	        }             
-	        else {        
-	        	LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);                      
-	            View view1 = inflater.inflate(R.layout.map_marker_info, null);                
-	           // GridView grid1 = (GridView)view.findViewById(R.id.menuGridChange);                
-	            //grid1.setAdapter(new ImageAdapter(this));
-	        	//生成PopupWindow对象                
-	            pw = new PopupWindow(view1,LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);                              
-	            //在指定位置弹出窗口                
-	            pw.showAsDropDown(view);    
-	            return;
-	        } */
+			
 			
 				System.out.println("Triggered");
 				File sdDir = Environment.getExternalStorageDirectory();//获取跟目录
@@ -254,7 +237,7 @@ public class MapFragment extends Fragment
 		            file.delete();
 		        }
 		        
-		      //delete frame
+		        //delete frame
 		        String fileName2 = sdDir.getPath() + "/data/isee/data/frame.png";
 				file = new File(fileName2);     
 		        if(file.isFile() && file.exists())
@@ -268,9 +251,10 @@ public class MapFragment extends Fragment
 		        	Toast.makeText(context, "Downloading...", Toast.LENGTH_LONG).show();
 		        	if(connector.DownloadPicture(marker.getSnippet(), sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet()) < 0){
 		        		Toast.makeText(context, "Download Fail!", Toast.LENGTH_LONG).show();
-		        		return;
 		        	}
-		        	Toast.makeText(context, "Download Success, Loading...", Toast.LENGTH_LONG).show();
+		        	Toast.makeText(context, "Download Success", Toast.LENGTH_LONG).show();
+		        	new MapMarkerClicked().getInfoContents(marker);
+		        	return;
 		        }
 		        if(file.isFile() && file.exists())
 		        {
@@ -285,13 +269,13 @@ public class MapFragment extends Fragment
 		        	Copy(file, fileName2);
 		        	Toast.makeText(context, "Frame settled", Toast.LENGTH_LONG).show();
 		        }
+		        
+		        
+		        // rating....
+		        connector.LikeIt(marker.getSnippet());
 		        Intent intent = new Intent();
 		        intent.setClass(context, ArMainActivity.class);
 		        context.startActivity(intent);
-	//		}
-	//		else {
-		//		Toast.makeText(context, "You can SEE it only if it's less than 10 meters from you" , Toast.LENGTH_LONG).show();
-			//}
 		}
 		
 		public void Copy(File oldfile, String newfile)
@@ -422,7 +406,7 @@ public class MapFragment extends Fragment
 	    loction_Btn = (ImageButton) view.findViewById(R.id.loction);  
 	}
 	
-	public void setMarker(LatLng latlng, String picID)
+	public void setMarker(LatLng latlng, String picID, int rating)
 	{
 
 	    markerOpt = new MarkerOptions();
@@ -430,7 +414,7 @@ public class MapFragment extends Fragment
 	    markerOpt.position(latlng);
 	    markerOpt.draggable(true);
 	    markerOpt.visible(true);
-	    markerOpt.title("title");	    
+	    markerOpt.title("" + rating);	    
 	    markerOpt.snippet(picID);
 	    markerOpt.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_target));
 	    mMap.addMarker(markerOpt);
@@ -464,9 +448,6 @@ public class MapFragment extends Fragment
 	    System.out.println("got here!1");
 	    connector.SearchAround(dLat, dLong, 1, this);
 	    System.out.println("got here!2");
-	    setMarker(new LatLng(31.0200251, 121.4300024), "1");
-	    setMarker(new LatLng(31.0260121, 121.4330014), "2");
-	    setMarker(new LatLng(31.021423, 121.438096), "3");
 //	    setMarker(new LatLng(31.021431, 121.438131), "5");
 	    
 	    if(relocate == 1)

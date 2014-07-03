@@ -208,6 +208,21 @@ public class MainActivity extends FragmentActivity implements ConnectionListener
 		System.out.println("start upload");
 		System.out.println(latitude);
 		System.out.println(longitude);
+		File file = new File(imageFilePath);
+		if(imageFilePath.contains("default.jpg") ||!file.exists()){
+			System.out.println(imageFilePath);
+			Toast.makeText(getApplicationContext(), "Please take picture first",
+				     Toast.LENGTH_SHORT).show();
+			return;
+		}
+		String frame = imageFilePath.replace(".jpg", "_altered.png");
+		file = new File(frame);
+		if(frame.contains("default") || !file.exists()){
+			Toast.makeText(getApplicationContext(), "Please draw the picture first",
+				     Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		Connector connect = new Connector(this);
 		connect.UploadPicture(latitude, longitude, imageFilePath, imageFilePath.replace(".jpg", "_altered.png"));
         //startActivityForResult(intent, 1); 

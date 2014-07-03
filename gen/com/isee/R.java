@@ -1422,6 +1422,7 @@ containing a value of this type.
         public static final int Eraser_Button=0x7f080062;
         public static final int Green=0x7f08007f;
         public static final int Green_Bar=0x7f080080;
+        public static final int Lanuh_AR=0x7f08009d;
         public static final int Photo_Buttom=0x7f080051;
         public static final int Picture_0_0=0x7f080065;
         public static final int Picture_0_1=0x7f080066;
@@ -1450,6 +1451,8 @@ containing a value of this type.
         public static final int Picture_Button=0x7f080063;
         public static final int Picture_table=0x7f080064;
         public static final int Plain_Button=0x7f08005e;
+        public static final int Rating_Source=0x7f08009b;
+        public static final int Rating_plusone=0x7f08009c;
         public static final int Red=0x7f08007d;
         public static final int Red_Bar=0x7f08007e;
         public static final int Save_Button=0x7f08004d;
@@ -1473,9 +1476,9 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f080020;
         public static final int action_menu_presenter=0x7f080021;
         public static final int action_mode_close_button=0x7f08002e;
-        public static final int action_settings=0x7f0800a6;
+        public static final int action_settings=0x7f0800aa;
         public static final int activity_chooser_view_content=0x7f08002f;
-        public static final int add=0x7f0800a5;
+        public static final int add=0x7f0800a9;
         public static final int altered_view=0x7f080048;
         public static final int always=0x7f080016;
         public static final int ar_button=0x7f08005b;
@@ -1484,11 +1487,11 @@ containing a value of this type.
         public static final int background=0x7f08004f;
         public static final int beginning=0x7f08001b;
         public static final int buttonClose=0x7f080087;
-        public static final int buttonShare=0x7f0800a0;
-        public static final int buttonWebBack=0x7f0800a1;
-        public static final int buttonWebForward=0x7f0800a4;
-        public static final int buttonWebReload=0x7f0800a3;
-        public static final int buttonWebStop=0x7f0800a2;
+        public static final int buttonShare=0x7f0800a4;
+        public static final int buttonWebBack=0x7f0800a5;
+        public static final int buttonWebForward=0x7f0800a8;
+        public static final int buttonWebReload=0x7f0800a7;
+        public static final int buttonWebStop=0x7f0800a6;
         public static final int callButton=0x7f080005;
         public static final int checkbox=0x7f080037;
         public static final int collapseActionView=0x7f080018;
@@ -1502,6 +1505,7 @@ containing a value of this type.
         public static final int edit_query=0x7f08003a;
         public static final int emailButton=0x7f080006;
         public static final int end=0x7f08001d;
+        public static final int exit_layout=0x7f08009a;
         public static final int expand_activities_button=0x7f080030;
         public static final int expanded_menu=0x7f080036;
         public static final int googleMap=0x7f08008a;
@@ -1517,7 +1521,7 @@ containing a value of this type.
         public static final int imageButton=0x7f080001;
         public static final int imagePOIThumbnail=0x7f080094;
         public static final int layoutRotated=0x7f080093;
-        public static final int layoutToast=0x7f08009a;
+        public static final int layoutToast=0x7f08009e;
         public static final int listMode=0x7f08000c;
         public static final int list_item=0x7f080033;
         public static final int loction=0x7f08008f;
@@ -1532,7 +1536,7 @@ containing a value of this type.
         public static final int none=0x7f080007;
         public static final int normal=0x7f080008;
         public static final int poidetailfragment=0x7f080092;
-        public static final int progressBar=0x7f08009d;
+        public static final int progressBar=0x7f0800a1;
         public static final int progress_circular=0x7f080022;
         public static final int progress_horizontal=0x7f080023;
         public static final int radio=0x7f080039;
@@ -1540,7 +1544,7 @@ containing a value of this type.
         public static final int rb_nomal=0x7f08008d;
         public static final int rb_satellite=0x7f08008e;
         public static final int rg_mapType=0x7f08008c;
-        public static final int root=0x7f08009e;
+        public static final int root=0x7f0800a2;
         public static final int routeButton=0x7f080004;
         public static final int satellite=0x7f080009;
         public static final int search_badge=0x7f08003c;
@@ -1566,14 +1570,14 @@ containing a value of this type.
         public static final int textPOIDescription=0x7f080099;
         public static final int textPOILocation=0x7f080097;
         public static final int textPOIName=0x7f080095;
-        public static final int textToast=0x7f08009b;
+        public static final int textToast=0x7f08009f;
         public static final int title=0x7f080035;
         public static final int top_action_bar=0x7f08002a;
         public static final int up=0x7f08002b;
         public static final int useLogo=0x7f08000e;
         public static final int videoButton=0x7f080003;
-        public static final int webBottomBar=0x7f08009f;
-        public static final int webView=0x7f08009c;
+        public static final int webBottomBar=0x7f0800a3;
+        public static final int webView=0x7f0800a0;
         public static final int withText=0x7f080017;
     }
     public static final class integer {
@@ -1644,10 +1648,11 @@ containing a value of this type.
         public static final int map_marker_info=0x7f030026;
         public static final int poiactivity=0x7f030027;
         public static final int poidetaildialog=0x7f030028;
-        public static final int support_simple_spinner_dropdown_item=0x7f030029;
-        public static final int toast=0x7f03002a;
-        public static final int webview=0x7f03002b;
-        public static final int webviewnav=0x7f03002c;
+        public static final int rating_layout=0x7f030029;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002a;
+        public static final int toast=0x7f03002b;
+        public static final int webview=0x7f03002c;
+        public static final int webviewnav=0x7f03002d;
     }
     public static final class menu {
         public static final int cursor=0x7f0e0000;
@@ -2607,6 +2612,7 @@ containing a value of this type.
         public static final int open=0x7f06013b;
         public static final int title_activity_draw=0x7f06013e;
         public static final int title_activity_photo=0x7f06013f;
+        public static final int title_activity_popup=0x7f060140;
         public static final int title_activity_search=0x7f06013d;
     }
     public static final class style {
@@ -2638,6 +2644,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f090090;
         public static final int POIButton=0x7f090002;
         public static final int POIButton_POIActionButton=0x7f090003;
+        public static final int PopupStyle=0x7f090091;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f090067;
@@ -2746,10 +2753,10 @@ containing a value of this type.
         /**  Base platform-dependent theme providing a light-themed activity. 
          */
         public static final int Theme_Base_Light=0x7f090083;
-        public static final int Theme_FullScreen=0x7f090091;
+        public static final int Theme_FullScreen=0x7f090092;
         public static final int Theme_Fullscreen=0x7f090000;
         public static final int Theme_POIDialog=0x7f090001;
-        public static final int Theme_Translucent=0x7f090092;
+        public static final int Theme_Translucent=0x7f090093;
         /**  Styles in here can be extended for customisation in your application. Each utilises
          one of the Base styles. If Holo themes are available on the current platform version
          they will be used instead of the compat styles. 
