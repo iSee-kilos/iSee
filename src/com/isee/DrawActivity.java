@@ -44,6 +44,8 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
     private Bitmap real_alterBitmap;
     private double latitude;
     private double longitude;
+    private int raw_width;
+    private int raw_height;
 
     Bitmap newbmp;
     Matrix matrix;
@@ -85,6 +87,8 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
 
         float screenWidth  = getWindowManager().getDefaultDisplay().getWidth();         
 		float screenHeight = getWindowManager().getDefaultDisplay().getHeight();
+		raw_width = bmp.getWidth();
+		raw_height = bmp.getHeight();
 		newbmp = Bitmap.createScaledBitmap(bmp, (int)screenWidth, (int)screenHeight, true);
 		
 	
@@ -418,7 +422,7 @@ public class DrawActivity extends Activity implements OnColorChangedListener{
         	//String name= DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))+".jpg";
         	File fileName = new File(name);
         	FileOutputStream b = new FileOutputStream(fileName); 
-        	Bitmap saved_bmp = Bitmap.createScaledBitmap(real_alterBitmap, 200, 300, true);
+        	Bitmap saved_bmp = Bitmap.createScaledBitmap(real_alterBitmap, raw_width, raw_height, true);
         	saved_bmp.compress(Bitmap.CompressFormat.PNG, 100, b);// 把数据写入文件 
             b.flush();
             b.close();

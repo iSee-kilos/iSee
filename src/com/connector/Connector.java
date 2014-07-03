@@ -21,16 +21,19 @@ import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
-import com.microsoft.windowsazure.services.blob.client.CloudBlobClient;
-import com.microsoft.windowsazure.services.blob.client.CloudBlobContainer;
-import com.microsoft.windowsazure.services.blob.client.CloudBlockBlob;
-import com.microsoft.windowsazure.services.core.storage.CloudStorageAccount;
-import com.microsoft.windowsazure.services.core.storage.StorageException;
+import com.microsoft.azure.storage.CloudStorageAccount;
+import com.microsoft.azure.storage.StorageException;
+import com.microsoft.azure.storage.blob.BlobContainerPermissions;
+import com.microsoft.azure.storage.blob.BlobContainerPublicAccessType;
+import com.microsoft.azure.storage.blob.CloudBlobClient;
+import com.microsoft.azure.storage.blob.CloudBlobContainer;
+import com.microsoft.azure.storage.blob.CloudBlockBlob;
 
 public class Connector {
 	private MobileServiceClient mClient;
 	private MobileServiceTable<GeoInfo> mGeoInfoTable;
-	public GeoInfo geoInfo;
+	private GeoInfo geoInfo;
+	private ConnectionListener listener;
 	public static final String storageConnectionString = 
 			"DefaultEndpointsProtocol=http;" + 
 		    "AccountName=iseepics;" + 
@@ -42,103 +45,70 @@ public class Connector {
 					"https://iseegeo.azure-mobile.net/",
 					"bYRKjuesCORnxldwytFXBSVvBkKzPn39",
 					context);
-			mGeoInfoTable = mClient.getTable(GeoInfo.class);			
+			mGeoInfoTable = mClient.getTable(GeoInfo.class);	
+			listener = (ConnectionListener)context;
+			
 		} catch (MalformedURLException e) {
+			listener.OperationCallBack("Connection Fail");
 			e.printStackTrace();
 		}
 	}
 	
 //----------------------------these are for uploading pictures-------------------------------//	
-	public int UploadPicture(double latitude, double longtitude, String targetPath, String framePath){
+	public void UploadPicture(double latitude, double longtitude, String targetPath, String framePath){
 		if(mGeoInfoTable == null){
-			return -1;
+			listener.OperationCallBack("Connection Fail");
+			return;
 		}
-		geoInfo = null;
-		CountDownLatch latch = new CountDownLatch(1);
-		Thread req = new Thread(new GeoInfoRequirer(0, null, latitude, longtitude, latch));
-		req.start();
+		geoInfo = new GeoInfo(latitude, longtitude);
 		System.out.println("acquiring...");
-		try {
-			latch.await();
-			System.out.println(latch.getCount());
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(geoInfo == null){
-			return -1;
-		}
-		System.out.println("getGeoInfo");
-		//----------------------------
-		System.out.println("uploading target...");
-		String id = geoInfo.getId();
-		if(uploadBlob(id + "_target.jpg", targetPath) < 0)
-        	return -1;
-		System.out.println("uploading fram...");
-        if(uploadBlob(id + "_frame.png", framePath) < 0)
-        	return -1;
-        System.out.println("2success");
-        //-------------------------------------
-        System.out.println("confirming...");
-		latch = new CountDownLatch(1);
-		req = new Thread(new GeoInfoRequirer(1, geoInfo.getId(), latitude, longtitude, latch));
-		geoInfo = null;
-		req.start();
-		try {
-			latch.await(3 ,TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(geoInfo == null){
-			return -1;
-		}
-		return 0;
+		listener.Waiting("Uploading");
+		mGeoInfoTable.insert(geoInfo, new InsertOperationCallback(targetPath, framePath));
 	}
 	
-	public class GeoInfoRequirer implements Runnable{
-		CountDownLatch latch;
-		double latitude;
-		double longtitude;
-		int type;
-		String id;
-		public GeoInfoRequirer(int type, String id, double latitude, double longtitude, CountDownLatch latch){
-			this.latch = latch;
-			this.latitude = latitude;
-			this.longtitude = longtitude;
-			this.type = type;
-			this.id = id;
-		}
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			GeoInfo gi = new GeoInfo(latitude, longtitude);
-			if(type == 0){
-				System.out.println("Inserting... ");
-				mGeoInfoTable.insert(gi, new MyTableOperationCallback(latch));
-			}else{
-				gi.setId(id);
-				System.out.println("updating... ");
-				mGeoInfoTable.update(gi, new MyTableOperationCallback(latch));
-			}
-		}
-	}
-	
-	public class MyTableOperationCallback implements TableOperationCallback<GeoInfo>{
-		CountDownLatch myLatch;
-		public MyTableOperationCallback(CountDownLatch latch){
-			this.myLatch = latch;
-			System.out.println(myLatch.getCount());
+	public class InsertOperationCallback implements TableOperationCallback<GeoInfo>{
+		String targetPath;
+		String framePath;
+		public InsertOperationCallback(String target, String frame){
+			this.targetPath = target;
+			this.framePath = frame;
 		}
 		@Override
 		public void onCompleted(GeoInfo entity, Exception exception, ServiceFilterResponse response) {
 			System.out.println("Come Back");
 			if (exception == null) {
 				geoInfo = entity;
+				String id = entity.getId();
+            	if(uploadBlob(id + "_target.jpg", targetPath) < 0){
+            		listener.OperationCallBack("Upload Picture Fail");
+            		return;
+            	}
+				System.out.println("uploading frame...");
+		        if(uploadBlob(id + "_frame.png", framePath) < 0){
+		        	listener.OperationCallBack("Upload Picture Fail");
+		        	return;
+		        }
+		        System.out.println("Upload picture success");
+		        geoInfo.setConfirmed(true);
+		        mGeoInfoTable.update(geoInfo, new UpdateOperationCallback());
 			}
-			myLatch.countDown();
-			System.out.println(myLatch.getCount());
+			else {
+				listener.OperationCallBack("Upload Picture fail");
+			}
 		}
+	}
+	
+	public class UpdateOperationCallback implements TableOperationCallback<GeoInfo>{
+
+		@Override
+		public void onCompleted(GeoInfo entity, Exception exception, ServiceFilterResponse response) {
+			// TODO Auto-generated method stub
+			if (exception == null){
+				listener.OperationCallBack("Upload Picture Success");
+			}
+			else listener.OperationCallBack("Upload Picture Fail");
+		}
+		
 	}
 	
 	public int uploadBlob(String name, String path){
@@ -147,26 +117,22 @@ public class Connector {
 			storageAccount = CloudStorageAccount.parse(storageConnectionString);
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 			CloudBlobContainer container = blobClient.getContainerReference("pictures");
-			container.createIfNotExist();
+		//	container.createIfNotExists();
 			CloudBlockBlob blob = container.getBlockBlobReference(name);
-			blob.deleteIfExists();
+		//	blob.deleteIfExists();
 			File source = new File(path);
 			blob.upload(new FileInputStream(source), source.length());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return -1;
 		} catch (InvalidKeyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return -1;
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return -1;
 		} catch (StorageException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return -1;
 		}
 		return 0;
@@ -178,7 +144,7 @@ public class Connector {
 			storageAccount = CloudStorageAccount.parse(storageConnectionString);
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 			CloudBlobContainer container = blobClient.getContainerReference("pictures");
-			container.createIfNotExist();
+		//	container.createIfNotExists();
 			CloudBlockBlob blob = container.getBlockBlobReference(name);
 			if(!blob.exists()){
 				return -1;
@@ -218,7 +184,8 @@ public class Connector {
 		if(mGeoInfoTable == null){
 			return;
 		}
-		mGeoInfoTable.where().field("latitude").ge(latitude - radius)
+		mGeoInfoTable.where().field("confirmed").eq(true)
+			.and(mGeoInfoTable.where().field("latitude").ge(latitude - radius))
 			.and(mGeoInfoTable.where().field("latitude").le(latitude + radius))
 			.and(mGeoInfoTable.where().field("longtitude").ge(longtitude - radius))
 			.and(mGeoInfoTable.where().field("longtitude").le(longtitude + radius))
@@ -242,6 +209,11 @@ public class Connector {
 				}
 			}
 		}
+	}
+	
+	public interface ConnectionListener{
+		public void Waiting(String message);
+		public void OperationCallBack(String message);
 	}
 }
 //----------------------------thing to do with search around-----------------------------------//

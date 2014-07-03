@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -95,14 +96,24 @@ public class PhotoActivity extends Activity {
             // Decode it for real 
             bmpFactoryOptions.inJustDecodeBounds = false; 
             bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
-             newbmp = Bitmap.createScaledBitmap(bmp, (int)200, (int)300, true);
+            
+            Matrix m = new Matrix();
+            if(bmp.getHeight()<bmp.getWidth()){
+            	m.setRotate(90, (float) bmp.getWidth() / 2, (float) bmp.getHeight() / 2);
+            //	bmp = Bitmap.createScaledBitmap(bmp, (int)200, (int)300, true);
+        		Bitmap tempbmp =  Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), m, true);
+        		newbmp = Bitmap.createScaledBitmap(tempbmp, (int)200, (int)300, true);
+            }
+            else {
+            	newbmp = Bitmap.createScaledBitmap(bmp, (int)200, (int)300, true);
+            }
             iv.setImageBitmap(newbmp);
             
             try {
             	String name= Environment.getExternalStorageDirectory().getAbsolutePath() +"/data/isee/data/target.jpg";
-            	File fileName = new File(name);
+            	File fileName = new File(imageFilePath);
             	FileOutputStream b = new FileOutputStream(fileName);  
-            	bmp.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件 
+            	newbmp.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件 
                 b.flush();
                 b.close();
             } catch (FileNotFoundException e) {  
@@ -213,13 +224,13 @@ public class PhotoActivity extends Activity {
 					// TODO Auto-generated method stub
 					bestProvider = locationManager.getBestProvider(criteria, true);
 					location = locationManager.getLastKnownLocation(bestProvider);
-					Toast.makeText(getApplicationContext(), provider + "was opened",
+					Toast.makeText(getApplicationContext(), provider + " was opened",
 			   			     Toast.LENGTH_SHORT).show();
 				}
 				@Override
 				public void onProviderDisabled(String provider) {
 					// TODO Auto-generated method stub
-					Toast.makeText(getApplicationContext(), provider + "was closed",
+					Toast.makeText(getApplicationContext(), provider + " was closed",
 			   			     Toast.LENGTH_SHORT).show();
 					bestProvider = locationManager.getBestProvider(criteria, true);
 				}

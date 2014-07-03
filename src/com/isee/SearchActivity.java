@@ -1,5 +1,6 @@
 package com.isee;
 
+import com.connector.Connector.ConnectionListener;
 import com.isee.R;
 
 import android.os.Bundle;
@@ -14,13 +15,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class SearchActivity extends FragmentActivity
+public class SearchActivity extends FragmentActivity implements ConnectionListener
 {
 
     private int selection = 0;
@@ -41,11 +44,15 @@ public class SearchActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) 
     {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE); 
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  
+                				WindowManager.LayoutParams.FLAG_FULLSCREEN); 
+		
 		setContentView(R.layout.activity_search);
 		
 		names = getResources().getStringArray(R.array.nav_names);
 		classes = getResources().getStringArray(R.array.nav_classes);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
+		/*ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1, names);
 
 		drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -152,14 +159,14 @@ public class SearchActivity extends FragmentActivity
 		if (oldSelection != selection)
 		{
 			getActionBar().setTitle(names[selection]);
-			Toast.makeText(getApplicationContext(), names[selection], Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), names[selection], Toast.LENGTH_LONG).show();*/
 			FragmentTransaction tx = getSupportFragmentManager()
 					.beginTransaction();
 			tx.replace(R.id.main,
 					Fragment.instantiate(SearchActivity.this, classes[selection]));
 			tx.commitAllowingStateLoss();
-			oldSelection = selection;
-		}
+			//oldSelection = selection;
+		//}
 	}	
 	
 	/**
@@ -192,5 +199,17 @@ public class SearchActivity extends FragmentActivity
 		builder.setMessage(message);
 		builder.setTitle(title);
 		builder.create().show();
+	}
+
+	@Override
+	public void Waiting(String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OperationCallBack(String message) {
+		// TODO Auto-generated method stub
+		
 	}
 }

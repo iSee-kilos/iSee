@@ -194,6 +194,8 @@ public abstract class ARViewActivity extends Activity implements MetaioSurfaceVi
 	@Override
 	protected void onPause() 
 	{
+		onDestroy();
+		/*
 		super.onPause();
 		MetaioDebug.log("ARViewActivity.onPause");
 		
@@ -202,7 +204,7 @@ public abstract class ARViewActivity extends Activity implements MetaioSurfaceVi
 			mSurfaceView.onPause();
 		
 		mActivityIsPaused = true;
-		metaioSDK.pause();		
+		metaioSDK.pause();		*/
 	}
 
 	@Override

@@ -3,7 +3,6 @@
     package="com.isee"
     android:versionCode="1"
     android:versionName="1.0" >
-	
      
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -75,7 +74,7 @@
            	android:value="@integer/google_play_services_version" />
         <meta-data
 		    android:name="com.google.android.maps.v2.API_KEY"
-		    android:value="AIzaSyAaqqyy1f0qdp4G7tZblBCOjGErEBGle6g"/>
+		    android:value="AIzaSyCw3Nb6485oPkchjNK8-FdFm-NKSdo5jgQ"/>
     </application>
     
     

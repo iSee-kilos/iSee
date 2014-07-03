@@ -7,51 +7,33 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.connector.Connector;
+import com.connector.Connector.ConnectionListener;
 import com.isee.R;
 
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.BlurMaskFilter;
-import android.graphics.Canvas;
+
 import android.graphics.Color;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.LinearGradient;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.RadialGradient;
-import android.graphics.Region;
-import android.graphics.Shader;
-import android.graphics.SweepGradient;
-import android.view.Display;
+
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.Window; 
 import android.view.WindowManager; 
 
-public class MainActivity extends FragmentActivity 
+public class MainActivity extends FragmentActivity implements ConnectionListener
 {
 	public SurfaceHolder holder;
 	private String imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/data/isee/default.jpg";
@@ -68,8 +50,11 @@ public class MainActivity extends FragmentActivity
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  
                 				WindowManager.LayoutParams.FLAG_FULLSCREEN); 
 		setContentView(R.layout.activity_main);
-		
-		/*InputStream istream = null;
+		if (android.os.Build.VERSION.SDK_INT > 9) {  
+		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();  
+		    StrictMode.setThreadPolicy(policy);  
+		}  
+		InputStream istream = null;
         istream =  getClass().getResourceAsStream("/assets/default.jpg");
         Bitmap bmp = BitmapFactory.decodeStream(istream);
         try {
@@ -84,22 +69,22 @@ public class MainActivity extends FragmentActivity
             e.printStackTrace();  
         }catch (IOException e) {  
             e.printStackTrace();  
-        }*/
+        }
 		Intent intent = getIntent();
 		String name=  intent.getStringExtra("file_location");
 		if (name != null && !name.equals("null") ){
 			imageFilePath = name;
 			latitude = intent.getDoubleExtra("photo_latitude", 0);
 			longitude = intent.getDoubleExtra("photo_longitude", 0);
-        }
-		// Load up the image's dimensions not the image itself 
-        BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
-        bmpFactoryOptions.inJustDecodeBounds = true; 
-        Bitmap bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
-        // Decode it for real 
-        bmpFactoryOptions.inJustDecodeBounds = false; 
-        bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
         
+			// Load up the image's dimensions not the image itself 
+	        BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options(); 
+	        bmpFactoryOptions.inJustDecodeBounds = true; 
+	        bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions); 
+	        // Decode it for real 
+	        bmpFactoryOptions.inJustDecodeBounds = false; 
+	        bmp = BitmapFactory.decodeFile(imageFilePath, bmpFactoryOptions);
+		}
         float screenWidth  = getWindowManager().getDefaultDisplay().getWidth();       // 屏幕宽（像素，如：480px）  
 		float screenHeight = getWindowManager().getDefaultDisplay().getHeight();
 		Bitmap newbmp = Bitmap.createScaledBitmap(bmp, (int)screenWidth, (int)screenHeight, true);
@@ -184,7 +169,7 @@ public class MainActivity extends FragmentActivity
         /* 启动一个新的Activity */
         MainActivity.this.startActivity(intent);
         /* 关闭当前的Activity */
-        MainActivity.this.finish();
+        //MainActivity.this.finish();
 	}	
 	
 	public void Photo_Buttom_Onclick(View view){
@@ -198,8 +183,17 @@ public class MainActivity extends FragmentActivity
 	}	
 	
 	public void Draw_Buttom_Onclick(View view){
+		if (imageFilePath == null || imageFilePath.equals("null") ||imageFilePath.contains("default") ){
+			Toast.makeText(getApplicationContext(), "Please take photo first!",
+				     Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
+		
 		Intent intent = new Intent();
-		intent.putExtra("file_location", imageFilePath);   
+		intent.putExtra("file_location", imageFilePath); 
+		intent.putExtra("photo_latitude", latitude);
+		intent.putExtra("photo_longitude", longitude);
         /* 指定intent要启动的类 */
         intent.setClass(MainActivity.this, DrawActivity.class);
         /* 启动一个新的Activity */
@@ -215,11 +209,23 @@ public class MainActivity extends FragmentActivity
 		System.out.println(latitude);
 		System.out.println(longitude);
 		Connector connect = new Connector(this);
-		if(connect.UploadPicture(latitude, longitude, imageFilePath, imageFilePath.replace(".jpg", "_altered.png")) < 0){
-			Toast.makeText(getApplicationContext(), "上传图片失败！",
-	   			     Toast.LENGTH_SHORT).show();
-		}
+		connect.UploadPicture(latitude, longitude, imageFilePath, imageFilePath.replace(".jpg", "_altered.png"));
         //startActivityForResult(intent, 1); 
+	}
+
+	
+	private ProgressDialog pd;
+	@Override
+	public void Waiting(String message) {
+		// TODO Auto-generated method stub
+		pd = ProgressDialog.show(this, message, "Please wait...");
+	}
+
+	@Override
+	public void OperationCallBack(String message) {
+		pd.dismiss();
+		Toast.makeText(getApplicationContext(), message,
+			     Toast.LENGTH_SHORT).show();
 	}	
 	
 }

@@ -26,16 +26,21 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
@@ -94,13 +99,13 @@ public class MapFragment extends Fragment
 		mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		mMap.setInfoWindowAdapter(new MapMarkerClicked());
 		mMap.setOnInfoWindowClickListener(new MarkerInfoWindowClickedListener());
-		updateToNewLocation(location);
+		updateToNewLocation(location, 0);
 		//给按钮添加监听器
 		loction_Btn.setOnClickListener(new MapClickedListener());
 		//为RadioGroup的选中状态改变添加监听器
 		rg_mapType.setOnCheckedChangeListener(new ChangeMapTypeListener()); 
 		// 设置监听器，自动更新的最小时间为间隔N秒(1秒为1*1000，这样写主要为了方便)或最小位移变化超过N
-		locManager.requestLocationUpdates(bestProvider,  3 * 1000, 8, 
+		locManager.requestLocationUpdates(bestProvider, 500, 0, 
 			new LocationListener() {
 		    //当Provider的状态改变时
 				@Override
@@ -120,13 +125,13 @@ public class MapFragment extends Fragment
 			    @Override
 			    public void onProviderDisabled(String provider) 
 			    {
-			    	updateToNewLocation(null);
+			    	updateToNewLocation(null, 0);
 			    }
 			    @Override
 			    public void onLocationChanged(Location location) 
 			    {
 			    	// 当GPS定位信息发生改变时，更新位置
-			    	updateToNewLocation(location);
+			    	updateToNewLocation(location, 0);
 			    }
 		    });
     }
@@ -146,6 +151,11 @@ public class MapFragment extends Fragment
 //        Fragment fragment = (Fragment) fManager.findFragmentById(R.id.mapView);
 //        getActivity().getSupportFragmentManager().beginTransaction().remove(fragment).commitAllowingStateLoss();
     }
+    public double getDistance(double lat1, double lon1, double lat2, double lon2) {
+        float[] results=new float[1];
+        Location.distanceBetween(lat1, lon1, lat2, lon2, results);
+        return results[0];
+    }
     
     //listener
     private class MapMarkerClicked implements InfoWindowAdapter
@@ -155,21 +165,33 @@ public class MapFragment extends Fragment
 		
 		@Override
 		public View getInfoContents(Marker marker) {
+			if (marker.getTitle().equals("me"))
+			{
+				return null;
+			}
 			if(mInfoWindowContent == null){
 		        mInfoWindowContent = mInflater.inflate(R.layout.map_marker_info, null);
 		    }  
-			
+
+			int distance = (int)getDistance(location.getLatitude(), location.getLongitude(), marker.getPosition().latitude, marker.getPosition().longitude); 
+		    TextView infoTitle = (TextView)mInfoWindowContent.findViewById(R.id.map_info_title);
+		    infoTitle.setText("Distance : " + distance + "m");
+		    //check cache
 		    ImageView infoImage = (ImageView)mInfoWindowContent.findViewById(R.id.map_info_image);
 		    File sdDir = Environment.getExternalStorageDirectory();//获取跟目录
 		    String filename = sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet() + "_target.jpg";
-	        Bitmap bitmap = getLoacalBitmap(filename);
-	        infoImage .setImageBitmap(bitmap);
+		    File file = new File(filename);
+		    if((marker.getTitle() != "me") && (file.exists())){
+		    	Bitmap bitmap = getLoacalBitmap(filename);
+		        infoImage.setImageBitmap(bitmap);
+		        infoImage.setVisibility(View.VISIBLE);
+		    }
+		    else {
+		    	infoImage.setVisibility(View.GONE);
+		    }
 		    
-		    TextView infoTitle = (TextView)mInfoWindowContent.findViewById(R.id.map_info_title);
-		    infoTitle.setText(marker.getTitle());
-		        
-		    TextView infoSnippet = (TextView)mInfoWindowContent.findViewById(R.id.map_info_snippet);
-		    infoSnippet.setText(marker.getSnippet());
+		/*    TextView infoSnippet = (TextView)mInfoWindowContent.findViewById(R.id.map_info_snippet);
+		    infoSnippet.setText(marker.getSnippet());*/
 		    return mInfoWindowContent;
 		}
 		
@@ -190,48 +212,86 @@ public class MapFragment extends Fragment
 	    }
 		
 	}
-    
+    private PopupWindow pw = null;
     //listener
     private class MarkerInfoWindowClickedListener implements OnInfoWindowClickListener
 	{
 		@Override
 		public void onInfoWindowClick(Marker marker) 
 		{
-			System.out.println("Triggered");
-			File sdDir = Environment.getExternalStorageDirectory();//获取跟目录
+			int distance = (int)getDistance(location.getLatitude(), location.getLongitude(), marker.getPosition().latitude, marker.getPosition().longitude);
+		//	if(distance < 10){
+			/*if (pw != null) {                
+	            if (pw.isShowing()) {                    
+	                //关闭弹出窗口                    
+	                pw.dismiss();                
+	            }                 
+	            else {                   
+	                //在指定位置弹出窗口                   
+	                pw.showAtLocation(view.findViewById(R.id.rg_mapType), Gravity.CENTER, 0, 10);                
+	            }            
+	        }             
+	        else {        
+	        	LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);                      
+	            View view1 = inflater.inflate(R.layout.map_marker_info, null);                
+	           // GridView grid1 = (GridView)view.findViewById(R.id.menuGridChange);                
+	            //grid1.setAdapter(new ImageAdapter(this));
+	        	//生成PopupWindow对象                
+	            pw = new PopupWindow(view1,LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);                              
+	            //在指定位置弹出窗口                
+	            pw.showAsDropDown(view);    
+	            return;
+	        } */
 			
-			//delete target
-			String fileName1 = sdDir.getPath() + "/data/isee/data/target.jpg";
-			File file = new File(fileName1);     
-	        if(file.isFile() && file.exists())
-	        {     
-	            file.delete();
-	        }
-	        
-	      //delete frame
-	        String fileName2 = sdDir.getPath() + "/data/isee/data/frame.png";
-			file = new File(fileName2);     
-	        if(file.isFile() && file.exists())
-	        {     
-	            file.delete();
-	        }
-	        
-	        
-	        String fileName = sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet() + "_target.jpg";
-	        file = new File(fileName);     
-	        if(file.isFile() && file.exists())
-	        {
-	        	Copy(file, fileName1);
-	        	Toast.makeText(context, "Target settled", Toast.LENGTH_LONG).show();
-	        }
-	        
-	        fileName = sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet() + "_frame.png";
-	        file = new File(fileName);     
-	        if(file.isFile() && file.exists())
-	        {
-	        	Copy(file, fileName2);
-	        	Toast.makeText(context, "Frame settled", Toast.LENGTH_LONG).show();
-	        }	        
+				System.out.println("Triggered");
+				File sdDir = Environment.getExternalStorageDirectory();//获取跟目录
+				
+				//delete target
+				String fileName1 = sdDir.getPath() + "/data/isee/data/target.jpg";
+				File file = new File(fileName1);     
+		        if(file.isFile() && file.exists())
+		        {     
+		            file.delete();
+		        }
+		        
+		      //delete frame
+		        String fileName2 = sdDir.getPath() + "/data/isee/data/frame.png";
+				file = new File(fileName2);     
+		        if(file.isFile() && file.exists())
+		        {     
+		            file.delete();
+		        }
+	
+		        String fileName = sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet() + "_target.jpg";
+		        file = new File(fileName);     
+		        if(!file.exists()){
+		        	Toast.makeText(context, "Downloading...", Toast.LENGTH_LONG).show();
+		        	if(connector.DownloadPicture(marker.getSnippet(), sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet()) < 0){
+		        		Toast.makeText(context, "Download Fail!", Toast.LENGTH_LONG).show();
+		        		return;
+		        	}
+		        	Toast.makeText(context, "Download Success, Loading...", Toast.LENGTH_LONG).show();
+		        }
+		        if(file.isFile() && file.exists())
+		        {
+		        	Copy(file, fileName1);
+		        	Toast.makeText(context, "Target settled", Toast.LENGTH_LONG).show();
+		        }
+		        
+		        fileName = sdDir.getPath() + "/data/isee/cache/" + marker.getSnippet() + "_frame.png";
+		        file = new File(fileName);     
+		        if(file.isFile() && file.exists())
+		        {
+		        	Copy(file, fileName2);
+		        	Toast.makeText(context, "Frame settled", Toast.LENGTH_LONG).show();
+		        }
+		        Intent intent = new Intent();
+		        intent.setClass(context, ArMainActivity.class);
+		        context.startActivity(intent);
+	//		}
+	//		else {
+		//		Toast.makeText(context, "You can SEE it only if it's less than 10 meters from you" , Toast.LENGTH_LONG).show();
+			//}
 		}
 		
 		public void Copy(File oldfile, String newfile)
@@ -259,9 +319,7 @@ public class MapFragment extends Fragment
 				e.printStackTrace();    
 			}    
 		}     
-		
-		
-		
+	
 	}
     
     //listener
@@ -283,7 +341,7 @@ public class MapFragment extends Fragment
 		    	Toast.makeText(context, "loc:" + bestProvider + "\n" + "longitude:" + location.getLongitude() + " Latitude:"+location.getLatitude() , Toast.LENGTH_LONG).show();
 		    	System.out.println("经度："+location.getLatitude()+"  纬度：" + location.getLongitude());
 		    }
-	    	updateToNewLocation(location);
+	    	updateToNewLocation(location, 1);
 	    }
 	}
 	
@@ -378,7 +436,7 @@ public class MapFragment extends Fragment
 	    mMap.addMarker(markerOpt);
 	}
 	
-	private void updateToNewLocation(Location location)
+	private void updateToNewLocation(Location location, int relocate)
 	{
 	    mMap.clear();
 	    markerOpt = new MarkerOptions();
@@ -391,28 +449,36 @@ public class MapFragment extends Fragment
 			dLong = location.getLongitude();
 			//获取纬度
 			dLat = location.getLatitude();
-	    }	    
+			Toast.makeText(context, " Latitude:"+location.getLatitude() + "longitude:" + location.getLongitude(), Toast.LENGTH_LONG).show(); }	    
+	    else {
+	    	return;
+	    }
 
 	    markerOpt.position(new LatLng(dLat, dLong));
 	    markerOpt.draggable(false);
 	    markerOpt.visible(true);
+	    markerOpt.title("me");
 	    markerOpt.anchor(0.5f, 0.5f);//设为图片中心
 	    markerOpt.icon(BitmapDescriptorFactory.fromResource(android.R.drawable.ic_menu_mylocation));
 	    mMap.addMarker(markerOpt);
 	    System.out.println("got here!1");
-	    connector.SearchAround(31.0200251, 121.4300024, 0.0000006, this);
+	    connector.SearchAround(dLat, dLong, 1, this);
 	    System.out.println("got here!2");
-	//    setMarker(new LatLng(31.0200251, 121.4300024), "1");
-	//    setMarker(new LatLng(31.0260121, 121.4330014), "2");
-	//    setMarker(new LatLng(31.0209309, 121.4360022), "3");
+	    setMarker(new LatLng(31.0200251, 121.4300024), "1");
+	    setMarker(new LatLng(31.0260121, 121.4330014), "2");
+	    setMarker(new LatLng(31.021423, 121.438096), "3");
+//	    setMarker(new LatLng(31.021431, 121.438131), "5");
 	    
-	    //将摄影机移动到指定的地理位置
-	    cameraPosition = new CameraPosition.Builder()
-	        .target(new LatLng(dLat, dLong))              // Sets the center of the map to ZINTUN
-	        .zoom(15)                   // 缩放比例
-	        .bearing(0)                // Sets the orientation of the camera to east
-	        .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-	        .build();                   // Creates a CameraPosition from the builder
-	        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-	    }
+	    if(relocate == 1)
+	    {
+		    //将摄影机移动到指定的地理位置
+		    cameraPosition = new CameraPosition.Builder()
+		        .target(new LatLng(dLat, dLong))              // Sets the center of the map to ZINTUN
+		        .zoom(15)                   // 缩放比例
+		        .bearing(0)                // Sets the orientation of the camera to east
+		        .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+		        .build();                   // Creates a CameraPosition from the builder
+		        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+		    }
+	}
 }

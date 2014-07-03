@@ -17,7 +17,17 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class array {
+        /**   <item>com.isee.SimpleAdapterFragment</item>
+        <item>com.isee.ArFragment</item>
+        <item>com.isee.SimpleAdapterFragment</item>
+        <item>com.isee.SimpleAdapterFragment</item> 
+         */
         public static final int nav_classes=0x7f0d0001;
+        /** <item>Upload</item>
+        <item>Match</item>
+        <item>Settings</item>
+        <item>Exit</item>
+         */
         public static final int nav_names=0x7f0d0000;
     }
     public static final class attr {
@@ -1015,38 +1025,38 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f0b0002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f06001b;
-        public static final int abc_search_url_text_normal=0x7f060018;
-        public static final int abc_search_url_text_pressed=0x7f06001a;
-        public static final int abc_search_url_text_selected=0x7f060019;
-        public static final int common_action_bar_splitter=0x7f060017;
+        public static final int abc_search_url_text_holo=0x7f07001b;
+        public static final int abc_search_url_text_normal=0x7f070018;
+        public static final int abc_search_url_text_pressed=0x7f07001a;
+        public static final int abc_search_url_text_selected=0x7f070019;
+        public static final int common_action_bar_splitter=0x7f070017;
         /**  Sign-in Button Colors 
          */
-        public static final int common_signin_btn_dark_text_default=0x7f06000e;
-        public static final int common_signin_btn_dark_text_disabled=0x7f060010;
-        public static final int common_signin_btn_dark_text_focused=0x7f060011;
-        public static final int common_signin_btn_dark_text_pressed=0x7f06000f;
-        public static final int common_signin_btn_default_background=0x7f060016;
-        public static final int common_signin_btn_light_text_default=0x7f060012;
-        public static final int common_signin_btn_light_text_disabled=0x7f060014;
-        public static final int common_signin_btn_light_text_focused=0x7f060015;
-        public static final int common_signin_btn_light_text_pressed=0x7f060013;
-        public static final int common_signin_btn_text_dark=0x7f06001c;
-        public static final int common_signin_btn_text_light=0x7f06001d;
-        public static final int listViewBackground=0x7f060002;
-        public static final int listViewText=0x7f060001;
-        public static final int logoBlue=0x7f06000b;
-        public static final int logoGreen=0x7f06000a;
-        public static final int logoOrange=0x7f060009;
-        public static final int logoYellow=0x7f060008;
-        public static final int poiDetailBackground=0x7f06000d;
-        public static final int screenTitle=0x7f060007;
-        public static final int sponsoredBackground=0x7f06000c;
-        public static final int tableViewBackground=0x7f060003;
-        public static final int toastBackground=0x7f060004;
-        public static final int toastBorder=0x7f060005;
-        public static final int toastText=0x7f060006;
-        public static final int transparent=0x7f060000;
+        public static final int common_signin_btn_dark_text_default=0x7f07000e;
+        public static final int common_signin_btn_dark_text_disabled=0x7f070010;
+        public static final int common_signin_btn_dark_text_focused=0x7f070011;
+        public static final int common_signin_btn_dark_text_pressed=0x7f07000f;
+        public static final int common_signin_btn_default_background=0x7f070016;
+        public static final int common_signin_btn_light_text_default=0x7f070012;
+        public static final int common_signin_btn_light_text_disabled=0x7f070014;
+        public static final int common_signin_btn_light_text_focused=0x7f070015;
+        public static final int common_signin_btn_light_text_pressed=0x7f070013;
+        public static final int common_signin_btn_text_dark=0x7f07001c;
+        public static final int common_signin_btn_text_light=0x7f07001d;
+        public static final int listViewBackground=0x7f070002;
+        public static final int listViewText=0x7f070001;
+        public static final int logoBlue=0x7f07000b;
+        public static final int logoGreen=0x7f07000a;
+        public static final int logoOrange=0x7f070009;
+        public static final int logoYellow=0x7f070008;
+        public static final int poiDetailBackground=0x7f07000d;
+        public static final int screenTitle=0x7f070007;
+        public static final int sponsoredBackground=0x7f07000c;
+        public static final int tableViewBackground=0x7f070003;
+        public static final int toastBackground=0x7f070004;
+        public static final int toastBorder=0x7f070005;
+        public static final int toastText=0x7f070006;
+        public static final int transparent=0x7f070000;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1398,175 +1408,173 @@ containing a value of this type.
         public static final int web_stop_pressed=0x7f0200db;
     }
     public static final class id {
-        public static final int Advenced_Brush_Button=0x7f070061;
-        public static final int Back_Buttom=0x7f070057;
-        public static final int Blue=0x7f070082;
-        public static final int Blue_Bar=0x7f070083;
-        public static final int Brush_Button=0x7f070060;
-        public static final int Color_show=0x7f070086;
-        public static final int DrawContainer=0x7f070047;
-        public static final int Draw_Buttom=0x7f070052;
-        public static final int Draw_Pic_Buttom=0x7f070058;
-        public static final int Draw_Tools_Bar_Button=0x7f07004c;
-        public static final int Draw_Tools_Group=0x7f07005e;
-        public static final int Eraser_Button=0x7f070063;
-        public static final int Green=0x7f070080;
-        public static final int Green_Bar=0x7f070081;
-        public static final int Photo_Buttom=0x7f070051;
-        public static final int Picture_0_0=0x7f070066;
-        public static final int Picture_0_1=0x7f070067;
-        public static final int Picture_0_2=0x7f070068;
-        public static final int Picture_0_3=0x7f070069;
-        public static final int Picture_1_0=0x7f07006a;
-        public static final int Picture_1_1=0x7f07006b;
-        public static final int Picture_1_2=0x7f07006c;
-        public static final int Picture_1_3=0x7f07006d;
-        public static final int Picture_2_0=0x7f07006e;
-        public static final int Picture_2_1=0x7f07006f;
-        public static final int Picture_2_2=0x7f070070;
-        public static final int Picture_2_3=0x7f070071;
-        public static final int Picture_3_0=0x7f070072;
-        public static final int Picture_3_1=0x7f070073;
-        public static final int Picture_3_2=0x7f070074;
-        public static final int Picture_3_3=0x7f070075;
-        public static final int Picture_4_0=0x7f070076;
-        public static final int Picture_4_1=0x7f070077;
-        public static final int Picture_4_2=0x7f070078;
-        public static final int Picture_4_3=0x7f070079;
-        public static final int Picture_5_0=0x7f07007a;
-        public static final int Picture_5_1=0x7f07007b;
-        public static final int Picture_5_2=0x7f07007c;
-        public static final int Picture_5_3=0x7f07007d;
-        public static final int Picture_Button=0x7f070064;
-        public static final int Picture_table=0x7f070065;
-        public static final int Plain_Button=0x7f07005f;
-        public static final int Red=0x7f07007e;
-        public static final int Red_Bar=0x7f07007f;
-        public static final int Save_Button=0x7f07004d;
-        public static final int Search_Buttom=0x7f070050;
-        public static final int Set_Color_Button=0x7f07004b;
-        public static final int Show_View=0x7f070056;
-        public static final int Spray_Button=0x7f070062;
-        public static final int Take_Pic_Buttom=0x7f070055;
-        public static final int Upload_Buttom=0x7f070053;
-        public static final int Width=0x7f070084;
-        public static final int Width_Bar=0x7f070085;
-        public static final int actionButton=0x7f07005d;
-        public static final int action_bar=0x7f070026;
-        public static final int action_bar_activity_content=0x7f07001f;
-        public static final int action_bar_container=0x7f070025;
-        public static final int action_bar_overlay_layout=0x7f070029;
-        public static final int action_bar_root=0x7f070024;
-        public static final int action_bar_subtitle=0x7f07002d;
-        public static final int action_bar_title=0x7f07002c;
-        public static final int action_context_bar=0x7f070027;
-        public static final int action_menu_divider=0x7f070020;
-        public static final int action_menu_presenter=0x7f070021;
-        public static final int action_mode_close_button=0x7f07002e;
-        public static final int action_settings=0x7f0700a8;
-        public static final int activity_chooser_view_content=0x7f07002f;
-        public static final int add=0x7f0700a7;
-        public static final int altered_view=0x7f070048;
-        public static final int always=0x7f070016;
-        public static final int ar_button=0x7f07005c;
-        public static final int ar_close_button=0x7f070046;
-        public static final int audioButton=0x7f070002;
-        public static final int background=0x7f07004f;
-        public static final int beginning=0x7f07001b;
-        public static final int buttonClose=0x7f070088;
-        public static final int buttonShare=0x7f0700a2;
-        public static final int buttonWebBack=0x7f0700a3;
-        public static final int buttonWebForward=0x7f0700a6;
-        public static final int buttonWebReload=0x7f0700a5;
-        public static final int buttonWebStop=0x7f0700a4;
-        public static final int callButton=0x7f070005;
-        public static final int checkbox=0x7f070037;
-        public static final int collapseActionView=0x7f070018;
-        public static final int container=0x7f07004e;
-        public static final int default_activity_button=0x7f070032;
-        public static final int dialog=0x7f070019;
-        public static final int disableHome=0x7f070013;
-        public static final int draw_tools=0x7f070049;
-        public static final int drawer=0x7f07005b;
-        public static final int drawer_layout=0x7f070059;
-        public static final int dropdown=0x7f07001a;
-        public static final int edit_query=0x7f07003a;
-        public static final int emailButton=0x7f070006;
-        public static final int end=0x7f07001d;
-        public static final int expand_activities_button=0x7f070030;
-        public static final int expanded_menu=0x7f070036;
-        public static final int googleMap=0x7f07008b;
-        public static final int home=0x7f07001e;
-        public static final int homeAsUp=0x7f070010;
-        public static final int homePageButton=0x7f070000;
-        public static final int html5viewcontainer=0x7f070089;
-        public static final int hybrid=0x7f07000b;
-        public static final int icon=0x7f070034;
-        public static final int ifRoom=0x7f070015;
-        public static final int image=0x7f070031;
-        public static final int imageAttribution=0x7f07009a;
-        public static final int imageButton=0x7f070001;
-        public static final int imagePOIThumbnail=0x7f070096;
-        public static final int layoutRotated=0x7f070095;
-        public static final int layoutToast=0x7f07009c;
-        public static final int listMode=0x7f07000c;
-        public static final int list_item=0x7f070033;
-        public static final int loction=0x7f070090;
-        public static final int main=0x7f07005a;
-        public static final int mapContainer=0x7f07008a;
-        public static final int mapView=0x7f070087;
-        public static final int map_info_image=0x7f070091;
-        public static final int map_info_snippet=0x7f070093;
-        public static final int map_info_title=0x7f070092;
-        public static final int mapsChoice=0x7f07008c;
-        public static final int middle=0x7f07001c;
-        public static final int never=0x7f070014;
-        public static final int none=0x7f070007;
-        public static final int normal=0x7f070008;
-        public static final int poidetailfragment=0x7f070094;
-        public static final int progressBar=0x7f07009f;
-        public static final int progress_circular=0x7f070022;
-        public static final int progress_horizontal=0x7f070023;
-        public static final int radio=0x7f070039;
-        public static final int ratingbar=0x7f070098;
-        public static final int rb_nomal=0x7f07008e;
-        public static final int rb_satellite=0x7f07008f;
-        public static final int rg_mapType=0x7f07008d;
-        public static final int root=0x7f0700a0;
-        public static final int routeButton=0x7f070004;
-        public static final int satellite=0x7f070009;
-        public static final int search_badge=0x7f07003c;
-        public static final int search_bar=0x7f07003b;
-        public static final int search_button=0x7f07003d;
-        public static final int search_close_btn=0x7f070042;
-        public static final int search_edit_frame=0x7f07003e;
-        public static final int search_go_btn=0x7f070044;
-        public static final int search_mag_icon=0x7f07003f;
-        public static final int search_plate=0x7f070040;
-        public static final int search_src_text=0x7f070041;
-        public static final int search_voice_btn=0x7f070045;
-        public static final int set_color=0x7f07004a;
-        public static final int shortcut=0x7f070038;
-        public static final int showCustom=0x7f070012;
-        public static final int showHome=0x7f07000f;
-        public static final int showTitle=0x7f070011;
-        public static final int split_action_bar=0x7f070028;
-        public static final int submit_area=0x7f070043;
-        public static final int tabMode=0x7f07000d;
-        public static final int terrain=0x7f07000a;
-        public static final int test1=0x7f070054;
-        public static final int textPOIDescription=0x7f07009b;
-        public static final int textPOILocation=0x7f070099;
-        public static final int textPOIName=0x7f070097;
-        public static final int textToast=0x7f07009d;
-        public static final int title=0x7f070035;
-        public static final int top_action_bar=0x7f07002a;
-        public static final int up=0x7f07002b;
-        public static final int useLogo=0x7f07000e;
-        public static final int videoButton=0x7f070003;
-        public static final int webBottomBar=0x7f0700a1;
-        public static final int webView=0x7f07009e;
-        public static final int withText=0x7f070017;
+        public static final int Advenced_Brush_Button=0x7f080060;
+        public static final int Back_Buttom=0x7f080057;
+        public static final int Blue=0x7f080081;
+        public static final int Blue_Bar=0x7f080082;
+        public static final int Brush_Button=0x7f08005f;
+        public static final int Color_show=0x7f080085;
+        public static final int DrawContainer=0x7f080047;
+        public static final int Draw_Buttom=0x7f080052;
+        public static final int Draw_Pic_Buttom=0x7f080058;
+        public static final int Draw_Tools_Bar_Button=0x7f08004c;
+        public static final int Draw_Tools_Group=0x7f08005d;
+        public static final int Eraser_Button=0x7f080062;
+        public static final int Green=0x7f08007f;
+        public static final int Green_Bar=0x7f080080;
+        public static final int Photo_Buttom=0x7f080051;
+        public static final int Picture_0_0=0x7f080065;
+        public static final int Picture_0_1=0x7f080066;
+        public static final int Picture_0_2=0x7f080067;
+        public static final int Picture_0_3=0x7f080068;
+        public static final int Picture_1_0=0x7f080069;
+        public static final int Picture_1_1=0x7f08006a;
+        public static final int Picture_1_2=0x7f08006b;
+        public static final int Picture_1_3=0x7f08006c;
+        public static final int Picture_2_0=0x7f08006d;
+        public static final int Picture_2_1=0x7f08006e;
+        public static final int Picture_2_2=0x7f08006f;
+        public static final int Picture_2_3=0x7f080070;
+        public static final int Picture_3_0=0x7f080071;
+        public static final int Picture_3_1=0x7f080072;
+        public static final int Picture_3_2=0x7f080073;
+        public static final int Picture_3_3=0x7f080074;
+        public static final int Picture_4_0=0x7f080075;
+        public static final int Picture_4_1=0x7f080076;
+        public static final int Picture_4_2=0x7f080077;
+        public static final int Picture_4_3=0x7f080078;
+        public static final int Picture_5_0=0x7f080079;
+        public static final int Picture_5_1=0x7f08007a;
+        public static final int Picture_5_2=0x7f08007b;
+        public static final int Picture_5_3=0x7f08007c;
+        public static final int Picture_Button=0x7f080063;
+        public static final int Picture_table=0x7f080064;
+        public static final int Plain_Button=0x7f08005e;
+        public static final int Red=0x7f08007d;
+        public static final int Red_Bar=0x7f08007e;
+        public static final int Save_Button=0x7f08004d;
+        public static final int Search_Buttom=0x7f080050;
+        public static final int Set_Color_Button=0x7f08004b;
+        public static final int Show_View=0x7f080056;
+        public static final int Spray_Button=0x7f080061;
+        public static final int Take_Pic_Buttom=0x7f080055;
+        public static final int Upload_Buttom=0x7f080053;
+        public static final int Width=0x7f080083;
+        public static final int Width_Bar=0x7f080084;
+        public static final int actionButton=0x7f08005c;
+        public static final int action_bar=0x7f080026;
+        public static final int action_bar_activity_content=0x7f08001f;
+        public static final int action_bar_container=0x7f080025;
+        public static final int action_bar_overlay_layout=0x7f080029;
+        public static final int action_bar_root=0x7f080024;
+        public static final int action_bar_subtitle=0x7f08002d;
+        public static final int action_bar_title=0x7f08002c;
+        public static final int action_context_bar=0x7f080027;
+        public static final int action_menu_divider=0x7f080020;
+        public static final int action_menu_presenter=0x7f080021;
+        public static final int action_mode_close_button=0x7f08002e;
+        public static final int action_settings=0x7f0800a6;
+        public static final int activity_chooser_view_content=0x7f08002f;
+        public static final int add=0x7f0800a5;
+        public static final int altered_view=0x7f080048;
+        public static final int always=0x7f080016;
+        public static final int ar_button=0x7f08005b;
+        public static final int ar_close_button=0x7f080046;
+        public static final int audioButton=0x7f080002;
+        public static final int background=0x7f08004f;
+        public static final int beginning=0x7f08001b;
+        public static final int buttonClose=0x7f080087;
+        public static final int buttonShare=0x7f0800a0;
+        public static final int buttonWebBack=0x7f0800a1;
+        public static final int buttonWebForward=0x7f0800a4;
+        public static final int buttonWebReload=0x7f0800a3;
+        public static final int buttonWebStop=0x7f0800a2;
+        public static final int callButton=0x7f080005;
+        public static final int checkbox=0x7f080037;
+        public static final int collapseActionView=0x7f080018;
+        public static final int container=0x7f08004e;
+        public static final int default_activity_button=0x7f080032;
+        public static final int dialog=0x7f080019;
+        public static final int disableHome=0x7f080013;
+        public static final int draw_tools=0x7f080049;
+        public static final int drawer_layout=0x7f080059;
+        public static final int dropdown=0x7f08001a;
+        public static final int edit_query=0x7f08003a;
+        public static final int emailButton=0x7f080006;
+        public static final int end=0x7f08001d;
+        public static final int expand_activities_button=0x7f080030;
+        public static final int expanded_menu=0x7f080036;
+        public static final int googleMap=0x7f08008a;
+        public static final int home=0x7f08001e;
+        public static final int homeAsUp=0x7f080010;
+        public static final int homePageButton=0x7f080000;
+        public static final int html5viewcontainer=0x7f080088;
+        public static final int hybrid=0x7f08000b;
+        public static final int icon=0x7f080034;
+        public static final int ifRoom=0x7f080015;
+        public static final int image=0x7f080031;
+        public static final int imageAttribution=0x7f080098;
+        public static final int imageButton=0x7f080001;
+        public static final int imagePOIThumbnail=0x7f080094;
+        public static final int layoutRotated=0x7f080093;
+        public static final int layoutToast=0x7f08009a;
+        public static final int listMode=0x7f08000c;
+        public static final int list_item=0x7f080033;
+        public static final int loction=0x7f08008f;
+        public static final int main=0x7f08005a;
+        public static final int mapContainer=0x7f080089;
+        public static final int mapView=0x7f080086;
+        public static final int map_info_image=0x7f080090;
+        public static final int map_info_title=0x7f080091;
+        public static final int mapsChoice=0x7f08008b;
+        public static final int middle=0x7f08001c;
+        public static final int never=0x7f080014;
+        public static final int none=0x7f080007;
+        public static final int normal=0x7f080008;
+        public static final int poidetailfragment=0x7f080092;
+        public static final int progressBar=0x7f08009d;
+        public static final int progress_circular=0x7f080022;
+        public static final int progress_horizontal=0x7f080023;
+        public static final int radio=0x7f080039;
+        public static final int ratingbar=0x7f080096;
+        public static final int rb_nomal=0x7f08008d;
+        public static final int rb_satellite=0x7f08008e;
+        public static final int rg_mapType=0x7f08008c;
+        public static final int root=0x7f08009e;
+        public static final int routeButton=0x7f080004;
+        public static final int satellite=0x7f080009;
+        public static final int search_badge=0x7f08003c;
+        public static final int search_bar=0x7f08003b;
+        public static final int search_button=0x7f08003d;
+        public static final int search_close_btn=0x7f080042;
+        public static final int search_edit_frame=0x7f08003e;
+        public static final int search_go_btn=0x7f080044;
+        public static final int search_mag_icon=0x7f08003f;
+        public static final int search_plate=0x7f080040;
+        public static final int search_src_text=0x7f080041;
+        public static final int search_voice_btn=0x7f080045;
+        public static final int set_color=0x7f08004a;
+        public static final int shortcut=0x7f080038;
+        public static final int showCustom=0x7f080012;
+        public static final int showHome=0x7f08000f;
+        public static final int showTitle=0x7f080011;
+        public static final int split_action_bar=0x7f080028;
+        public static final int submit_area=0x7f080043;
+        public static final int tabMode=0x7f08000d;
+        public static final int terrain=0x7f08000a;
+        public static final int test1=0x7f080054;
+        public static final int textPOIDescription=0x7f080099;
+        public static final int textPOILocation=0x7f080097;
+        public static final int textPOIName=0x7f080095;
+        public static final int textToast=0x7f08009b;
+        public static final int title=0x7f080035;
+        public static final int top_action_bar=0x7f08002a;
+        public static final int up=0x7f08002b;
+        public static final int useLogo=0x7f08000e;
+        public static final int videoButton=0x7f080003;
+        public static final int webBottomBar=0x7f08009f;
+        public static final int webView=0x7f08009c;
+        public static final int withText=0x7f080017;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -1651,954 +1659,955 @@ containing a value of this type.
     public static final class string {
         /**  Button label for accepting terms of conditions 
          */
-        public static final int BTN_ACCEPT=0x7f080001;
+        public static final int BTN_ACCEPT=0x7f060002;
         /**  Title for button add model in model-detail view 
          */
-        public static final int BTN_ADD=0x7f080002;
+        public static final int BTN_ADD=0x7f060003;
         /**  Button for adding a channel to favorites 
          */
-        public static final int BTN_ADD_FAVORITE=0x7f080003;
+        public static final int BTN_ADD_FAVORITE=0x7f060004;
         /**  Button text to agree terms of service and privacy policy 
          */
-        public static final int BTN_AGREE_TERMS=0x7f080004;
+        public static final int BTN_AGREE_TERMS=0x7f060005;
         /**  Segment control 
          */
-        public static final int BTN_ALL=0x7f080005;
+        public static final int BTN_ALL=0x7f060006;
         /**  Button to apply channel filters 
          */
-        public static final int BTN_APPLY=0x7f080006;
+        public static final int BTN_APPLY=0x7f060007;
         /**  Text for back button. 
          */
-        public static final int BTN_BACK=0x7f080007;
+        public static final int BTN_BACK=0x7f060008;
         /**  Button to open information to buy a product 
          */
-        public static final int BTN_BUY=0x7f080008;
+        public static final int BTN_BUY=0x7f060009;
         /**  Button to dial a phone number 
          */
-        public static final int BTN_CALL=0x7f080009;
+        public static final int BTN_CALL=0x7f06000a;
         /**  Cancel button text 
          */
-        public static final int BTN_CANCEL=0x7f08000a;
+        public static final int BTN_CANCEL=0x7f06000b;
         /**  Button to close a dialog 
          */
-        public static final int BTN_CLOSE=0x7f08000b;
+        public static final int BTN_CLOSE=0x7f06000c;
         /**  Button to close help text 
          */
-        public static final int BTN_CLOSE_HELPTXT=0x7f080100;
+        public static final int BTN_CLOSE_HELPTXT=0x7f060101;
         /**  Button to delete an item such as POI 
          */
-        public static final int BTN_DELETE=0x7f08000c;
+        public static final int BTN_DELETE=0x7f06000d;
         /**  Button to send an email 
          */
-        public static final int BTN_EMAIL=0x7f08000d;
+        public static final int BTN_EMAIL=0x7f06000e;
         /**  Button label for exiting the application 
          */
-        public static final int BTN_EXIT=0x7f08000e;
+        public static final int BTN_EXIT=0x7f06000f;
         /**  Button to open junaio feedback information 
          */
-        public static final int BTN_FEEDBACK=0x7f08000f;
+        public static final int BTN_FEEDBACK=0x7f060010;
         /**  Button label for filtering channel contents 
          */
-        public static final int BTN_FILTER=0x7f080010;
+        public static final int BTN_FILTER=0x7f060011;
         /**  Button label for Getting Started on Home screen 
          */
-        public static final int BTN_GETTING_STARTED=0x7f080012;
+        public static final int BTN_GETTING_STARTED=0x7f060013;
         /**  Button to open additional information, e.g. by scanning a barcode 
          */
-        public static final int BTN_GET_INFORMATION=0x7f080011;
+        public static final int BTN_GET_INFORMATION=0x7f060012;
         /**  Go button in the Live, List and Map views, and to launch channels from the list 
          */
-        public static final int BTN_GO=0x7f080013;
+        public static final int BTN_GO=0x7f060014;
         /**  Button to hide a pop-up message permenantly 
          */
-        public static final int BTN_HIDE=0x7f080014;
+        public static final int BTN_HIDE=0x7f060015;
         /**  Button label for Home 
          */
-        public static final int BTN_HOME=0x7f080015;
+        public static final int BTN_HOME=0x7f060016;
         /**  Button to open information 
          */
-        public static final int BTN_INFO=0x7f080016;
+        public static final int BTN_INFO=0x7f060017;
         /**  Button to sort latest channels 
          */
-        public static final int BTN_LATEST=0x7f080017;
+        public static final int BTN_LATEST=0x7f060018;
         /**  Button to open license information 
          */
-        public static final int BTN_LICENSE=0x7f080018;
+        public static final int BTN_LICENSE=0x7f060019;
         /**  List view button 
          */
-        public static final int BTN_LIST=0x7f080019;
+        public static final int BTN_LIST=0x7f06001a;
         /**  Live view button 
          */
-        public static final int BTN_LIVE=0x7f08001a;
+        public static final int BTN_LIVE=0x7f06001b;
         /**  LLA Marker button 
          */
-        public static final int BTN_LLAMARKER=0x7f08001b;
+        public static final int BTN_LLAMARKER=0x7f06001c;
         /**  Button to a load 3D model 
          */
-        public static final int BTN_LOAD_3D=0x7f08001c;
+        public static final int BTN_LOAD_3D=0x7f06001d;
         /**  Login button label 
          */
-        public static final int BTN_LOGIN=0x7f08001d;
+        public static final int BTN_LOGIN=0x7f06001e;
         /**  Logout button label 
          */
-        public static final int BTN_LOGOUT=0x7f08001e;
+        public static final int BTN_LOGOUT=0x7f06001f;
         /**  Button text for managing the channel 
          */
-        public static final int BTN_MANAGE_CHANNEL=0x7f08001f;
+        public static final int BTN_MANAGE_CHANNEL=0x7f060020;
         /**  Map Button 
          */
-        public static final int BTN_MAP=0x7f080020;
+        public static final int BTN_MAP=0x7f060021;
         /**  Button to sort channels based on most relevant 
          */
-        public static final int BTN_MOST_RELEVANT=0x7f080021;
+        public static final int BTN_MOST_RELEVANT=0x7f060022;
         /**  Button label for my junaio on Home screen 
          */
-        public static final int BTN_MY_JUNAIO=0x7f080022;
+        public static final int BTN_MY_JUNAIO=0x7f060023;
         /**  Button on poi details to open Google Navigation 
          */
-        public static final int BTN_NAVIGATE=0x7f080109;
+        public static final int BTN_NAVIGATE=0x7f06010a;
         /**  Button for sorting channels 
          */
-        public static final int BTN_NEW=0x7f080023;
+        public static final int BTN_NEW=0x7f060024;
         /**  No button text 
          */
-        public static final int BTN_NO=0x7f080024;
+        public static final int BTN_NO=0x7f060025;
         /**  Button no thanks 
          */
-        public static final int BTN_NO_THANKS=0x7f080025;
+        public static final int BTN_NO_THANKS=0x7f060026;
         /**  OK button 
          */
-        public static final int BTN_OK=0x7f080026;
+        public static final int BTN_OK=0x7f060027;
         /**  Button to open a channel, perhaps we should use BTN_OPEN_CHANNEL 
          */
-        public static final int BTN_OPEN=0x7f080027;
+        public static final int BTN_OPEN=0x7f060028;
         /**  Button for opening the channel in Live, List or Map view 
          */
-        public static final int BTN_OPEN_CHANNEL=0x7f080028;
+        public static final int BTN_OPEN_CHANNEL=0x7f060029;
         /**  Button to open a web site 
          */
-        public static final int BTN_OPEN_WEB=0x7f080029;
+        public static final int BTN_OPEN_WEB=0x7f06002a;
         /**  Button for playing an audio 
          */
-        public static final int BTN_PLAY_AUDIO=0x7f08002a;
+        public static final int BTN_PLAY_AUDIO=0x7f06002b;
         /**  Button to play media contents 
          */
-        public static final int BTN_PLAY_MEDIA=0x7f08002b;
+        public static final int BTN_PLAY_MEDIA=0x7f06002c;
         /**  Button for playing a video 
          */
-        public static final int BTN_PLAY_VIDEO=0x7f08002c;
+        public static final int BTN_PLAY_VIDEO=0x7f06002d;
         /**  Button for sorting channels based on popularity 
          */
-        public static final int BTN_POPULAR=0x7f08002d;
+        public static final int BTN_POPULAR=0x7f06002e;
         /**  Button label for Post 
          */
-        public static final int BTN_POST=0x7f08002e;
+        public static final int BTN_POST=0x7f06002f;
         /**  Button to rate the application 
          */
-        public static final int BTN_RATE_IT=0x7f08002f;
+        public static final int BTN_RATE_IT=0x7f060030;
         /**  Button label for refusing terms of conditions 
          */
-        public static final int BTN_REFUSE=0x7f080030;
+        public static final int BTN_REFUSE=0x7f060031;
         /**  Remember login information 
          */
-        public static final int BTN_REMEBMER_LOGIN=0x7f080031;
+        public static final int BTN_REMEBMER_LOGIN=0x7f060032;
         /**  Button for removing a channel from favorites 
          */
-        public static final int BTN_REMOVE_FAVORITE=0x7f080032;
+        public static final int BTN_REMOVE_FAVORITE=0x7f060033;
         /**  Title for remove friend action 
          */
-        public static final int BTN_REMOVE_FRIEND=0x7f080033;
+        public static final int BTN_REMOVE_FRIEND=0x7f060034;
         /**  Button to retry an operation 
          */
-        public static final int BTN_RETRY=0x7f080034;
+        public static final int BTN_RETRY=0x7f060035;
         /**  Button to display route information 
          */
-        public static final int BTN_ROUTE=0x7f080035;
+        public static final int BTN_ROUTE=0x7f060036;
         /**  Text for Save button . I think in the Configure My Channels section... 
          */
-        public static final int BTN_SAVE=0x7f080036;
+        public static final int BTN_SAVE=0x7f060037;
         /**  Button to save the screenshot on the device 
          */
-        public static final int BTN_SAVE_SCREENSHOT=0x7f080037;
+        public static final int BTN_SAVE_SCREENSHOT=0x7f060038;
         /**  Scan button in the Live view 
          */
-        public static final int BTN_SCAN=0x7f080038;
+        public static final int BTN_SCAN=0x7f060039;
         /**  Button to search junaio by taking a picture (visual search) of ad/image/product/etc. 
          */
-        public static final int BTN_SEARCH_JUNAIO=0x7f080108;
+        public static final int BTN_SEARCH_JUNAIO=0x7f060109;
         /**  Button to open application settings 
          */
-        public static final int BTN_SETTINGS=0x7f080039;
+        public static final int BTN_SETTINGS=0x7f06003a;
         /**  Button to the share the contents on Facebook 
          */
-        public static final int BTN_SHARE_FACEBOOK=0x7f08003a;
+        public static final int BTN_SHARE_FACEBOOK=0x7f06003b;
         /**  Button to share contents, e.g. Facebook 
          */
-        public static final int BTN_SHARING=0x7f08003b;
+        public static final int BTN_SHARING=0x7f06003c;
         /**  Button to show the password characters 
          */
-        public static final int BTN_SHOW_PASSWORD=0x7f08003c;
+        public static final int BTN_SHOW_PASSWORD=0x7f06003d;
         /**  Text on the button that will bring you to the signup/login screen 
          */
-        public static final int BTN_SIGNUP_LOGIN=0x7f08003e;
+        public static final int BTN_SIGNUP_LOGIN=0x7f06003f;
         /**  Button text to signup for junaio newsletter 
          */
-        public static final int BTN_SIGNUP_NEWSLETTER=0x7f08003f;
+        public static final int BTN_SIGNUP_NEWSLETTER=0x7f060040;
         /**  Signup button 
          */
-        public static final int BTN_SIGN_UP=0x7f08003d;
+        public static final int BTN_SIGN_UP=0x7f06003e;
         /**  Button label for my junaio on Home screen 
          */
-        public static final int BTN_SOCIAL=0x7f080040;
+        public static final int BTN_SOCIAL=0x7f060041;
         /**  Button to open junaio support information 
          */
-        public static final int BTN_SUPPORT=0x7f080041;
+        public static final int BTN_SUPPORT=0x7f060042;
         /**  Tag the World 
          */
-        public static final int BTN_TAG_THE_WORLD=0x7f080042;
+        public static final int BTN_TAG_THE_WORLD=0x7f060043;
         /**  Tag Visibility 
          */
-        public static final int BTN_TAG_VISIBILITY=0x7f080043;
+        public static final int BTN_TAG_VISIBILITY=0x7f060044;
         /**  View button in the live view 
          */
-        public static final int BTN_VIEW=0x7f080044;
+        public static final int BTN_VIEW=0x7f060045;
         /**  Button to view an image in full screen 
          */
-        public static final int BTN_VIEW_IMAGE=0x7f080045;
+        public static final int BTN_VIEW_IMAGE=0x7f060046;
         /**  Yes button text 
          */
-        public static final int BTN_YES=0x7f080046;
+        public static final int BTN_YES=0x7f060047;
         /**  Channel category (Banking) 
          */
-        public static final int CATEGORY_BANKING=0x7f080047;
+        public static final int CATEGORY_BANKING=0x7f060048;
         /**  Channel category (culture) 
          */
-        public static final int CATEGORY_CULTURE=0x7f080048;
+        public static final int CATEGORY_CULTURE=0x7f060049;
         /**  Channel category (Favorites) 
          */
-        public static final int CATEGORY_FAVORITES=0x7f080049;
+        public static final int CATEGORY_FAVORITES=0x7f06004a;
         /**  Channel category (Featured) 
          */
-        public static final int CATEGORY_FEATURED=0x7f08004a;
+        public static final int CATEGORY_FEATURED=0x7f06004b;
         /**  Channel category (Food) 
          */
-        public static final int CATEGORY_FOOD=0x7f08004b;
+        public static final int CATEGORY_FOOD=0x7f06004c;
         /**  Channel category (Friends' channels) 
          */
-        public static final int CATEGORY_FRIENDS_CHANNEL=0x7f08004c;
+        public static final int CATEGORY_FRIENDS_CHANNEL=0x7f06004d;
         /**  Channel category (Games) 
          */
-        public static final int CATEGORY_GAMES=0x7f08004d;
+        public static final int CATEGORY_GAMES=0x7f06004e;
         /**  Channel category (History) 
          */
-        public static final int CATEGORY_HISTORY=0x7f08004e;
+        public static final int CATEGORY_HISTORY=0x7f06004f;
         /**  Channel category (My channels) 
          */
-        public static final int CATEGORY_MY_CHANNELS=0x7f08004f;
+        public static final int CATEGORY_MY_CHANNELS=0x7f060050;
         /**  Channel category (Nearby) 
          */
-        public static final int CATEGORY_NEARBY=0x7f080050;
+        public static final int CATEGORY_NEARBY=0x7f060051;
         /**  Channel category (News) 
          */
-        public static final int CATEGORY_NEWS=0x7f080051;
+        public static final int CATEGORY_NEWS=0x7f060052;
         /**  Channel category (Nightlife) 
          */
-        public static final int CATEGORY_NIGHTLIFE=0x7f080052;
+        public static final int CATEGORY_NIGHTLIFE=0x7f060053;
         /**  Channel category (Search) 
          */
-        public static final int CATEGORY_SEARCH=0x7f080053;
+        public static final int CATEGORY_SEARCH=0x7f060054;
         /**  Channel category (Shopping) 
          */
-        public static final int CATEGORY_SHOPPING=0x7f080054;
+        public static final int CATEGORY_SHOPPING=0x7f060055;
         /**  Channel category (Travel) 
          */
-        public static final int CATEGORY_TRAVEL=0x7f080055;
+        public static final int CATEGORY_TRAVEL=0x7f060056;
         /**  Text for channel search text field 
          */
-        public static final int HNT_CHANNELS_SEARCH=0x7f080056;
+        public static final int HNT_CHANNELS_SEARCH=0x7f060057;
         /**  Textfield hint email address 
          */
-        public static final int HNT_EMAIL_ADDRESS=0x7f080057;
+        public static final int HNT_EMAIL_ADDRESS=0x7f060058;
         /**  Text hint for password field 
          */
-        public static final int HNT_PASSWORD=0x7f080058;
+        public static final int HNT_PASSWORD=0x7f060059;
         /**  Text hint Search junaio 
          */
-        public static final int HNT_SEARCH_JUNAIO=0x7f080059;
+        public static final int HNT_SEARCH_JUNAIO=0x7f06005a;
         /**  Text for friend search field 
          */
-        public static final int HNT_SEARCH_USERS=0x7f08005a;
+        public static final int HNT_SEARCH_USERS=0x7f06005b;
         /**  Text hint for twitter password field 
          */
-        public static final int HNT_TWITTER_PASSWORD=0x7f08005b;
+        public static final int HNT_TWITTER_PASSWORD=0x7f06005c;
         /**  Text hint for twitter username field 
          */
-        public static final int HNT_TWITTER_USERNAME=0x7f08005c;
+        public static final int HNT_TWITTER_USERNAME=0x7f06005d;
         /**  Text hint Username 
          */
-        public static final int HNT_USERNAME=0x7f08005d;
+        public static final int HNT_USERNAME=0x7f06005e;
         /**  Title for about junaio dialog in the home screen 
          */
-        public static final int LBL_ABOUT_JUNAIO=0x7f08005e;
+        public static final int LBL_ABOUT_JUNAIO=0x7f06005f;
         /**  Text for cell to add a comment 
          */
-        public static final int LBL_ADD_COMMENT=0x7f08005f;
+        public static final int LBL_ADD_COMMENT=0x7f060060;
         /**  Text for add friends cell, Title for adding friends screen 
          */
-        public static final int LBL_ADD_FRIENDS=0x7f080060;
+        public static final int LBL_ADD_FRIENDS=0x7f060061;
         /**  Title for adding model viewcontroller 
          */
-        public static final int LBL_ADD_MODEL=0x7f080061;
+        public static final int LBL_ADD_MODEL=0x7f060062;
         /**  Application name that is visible with the icon 
          */
-        public static final int LBL_APPLICATION_NAME=0x7f080062;
+        public static final int LBL_APPLICATION_NAME=0x7f060063;
         /**  Subtitle for twitter sharing 
          */
-        public static final int LBL_AUTOMATICALLY_SHARE_EVENTS=0x7f080063;
+        public static final int LBL_AUTOMATICALLY_SHARE_EVENTS=0x7f060064;
         /**  Text in the channel detail view. e.g. Lala by Stella 
          */
-        public static final int LBL_BY=0x7f080064;
+        public static final int LBL_BY=0x7f060065;
         /**  Title for channels 
          */
-        public static final int LBL_CHANNELS=0x7f080067;
+        public static final int LBL_CHANNELS=0x7f060068;
         /**  Channel state active 
          */
-        public static final int LBL_CHANNEL_STATE_ACTIVE=0x7f080065;
+        public static final int LBL_CHANNEL_STATE_ACTIVE=0x7f060066;
         /**  Channel state 
          */
-        public static final int LBL_CHANNEL_STATE_INACTIVE=0x7f080066;
+        public static final int LBL_CHANNEL_STATE_INACTIVE=0x7f060067;
         /**  Text indicating how many characters the user can still enter. 
          */
-        public static final int LBL_CHARACTERS_LEFT_FOR_INPUT=0x7f080068;
+        public static final int LBL_CHARACTERS_LEFT_FOR_INPUT=0x7f060069;
         /**  Label displayed on splash screen that application is checking external storage 
          */
-        public static final int LBL_CHECK_EXT_STORAGE=0x7f080069;
+        public static final int LBL_CHECK_EXT_STORAGE=0x7f06006a;
         /**  Label displayed on splash screen that application is checking if junaio server is reachable 
          */
-        public static final int LBL_CHECK_INTERNET=0x7f08006b;
+        public static final int LBL_CHECK_INTERNET=0x7f06006c;
         /**  Label displayed on splash screen that application is checking internal storage 
          */
-        public static final int LBL_CHECK_INT_STORAGE=0x7f08006a;
+        public static final int LBL_CHECK_INT_STORAGE=0x7f06006b;
         /**  Title for comments screen 
          */
-        public static final int LBL_COMMENTS=0x7f08006c;
+        public static final int LBL_COMMENTS=0x7f06006d;
         /**  Currently scanning for 
          */
-        public static final int LBL_CURRENTLY_SCANNING_FOR=0x7f08006d;
+        public static final int LBL_CURRENTLY_SCANNING_FOR=0x7f06006e;
         /**  Duration string days. 
          */
-        public static final int LBL_DAYS_AGO=0x7f08006f;
+        public static final int LBL_DAYS_AGO=0x7f060070;
         /**  Duration string 1 day. 
          */
-        public static final int LBL_DAY_AGO=0x7f08006e;
+        public static final int LBL_DAY_AGO=0x7f06006f;
         /**  Description-label for manage channel 
          */
-        public static final int LBL_DESCRIPTION=0x7f080070;
+        public static final int LBL_DESCRIPTION=0x7f060071;
         /**  Title for friend request sent message 
          */
-        public static final int LBL_DONE=0x7f080071;
+        public static final int LBL_DONE=0x7f060072;
         /**  Title for customization edit view [probably not used anymore] 
          */
-        public static final int LBL_EDIT_MODEL=0x7f080072;
+        public static final int LBL_EDIT_MODEL=0x7f060073;
         /**  Error 
          */
-        public static final int LBL_ERROR=0x7f080073;
+        public static final int LBL_ERROR=0x7f060074;
         /**  Text for featured channels (editors pick) on Home screen 
          */
-        public static final int LBL_FEATURED_PICKS=0x7f080074;
+        public static final int LBL_FEATURED_PICKS=0x7f060075;
         /**  Title for friends overview 
          */
-        public static final int LBL_FRIENDS=0x7f080075;
+        public static final int LBL_FRIENDS=0x7f060076;
         /**  Text for friendship request cell 
          */
-        public static final int LBL_FRIENDSHIP_REQUESTS=0x7f080076;
+        public static final int LBL_FRIENDSHIP_REQUESTS=0x7f060077;
         /**  "Help text to explain ""GO"" Button in SCAN View" 
          */
-        public static final int LBL_HELPTEXT_BTN_GO_SCANVIEW=0x7f080105;
+        public static final int LBL_HELPTEXT_BTN_GO_SCANVIEW=0x7f060106;
         /**  "Help text to explain Button ""Search for channels"" in SCAN View" 
          */
-        public static final int LBL_HELPTEXT_BTN_SEARCHJUNAIO_SCANVIEW=0x7f080107;
+        public static final int LBL_HELPTEXT_BTN_SEARCHJUNAIO_SCANVIEW=0x7f060108;
         /**  Help text to explain SCAN window in SCAN view (area to scan barcodes/Qr codes) 
          */
-        public static final int LBL_HELPTEXT_SCANWINDOW_SCANVIEW=0x7f080106;
+        public static final int LBL_HELPTEXT_SCANWINDOW_SCANVIEW=0x7f060107;
         /**  Help text to explain Featured Picks on Home screen 
          */
-        public static final int LBL_HELPTXT_FEATUREDPICKS_HOMESCREEN=0x7f080104;
+        public static final int LBL_HELPTXT_FEATUREDPICKS_HOMESCREEN=0x7f060105;
         /**  Help text to explain Near Me on Home screen 
          */
-        public static final int LBL_HELPTXT_NEARME_HOMESCREEN=0x7f080102;
+        public static final int LBL_HELPTXT_NEARME_HOMESCREEN=0x7f060103;
         /**  Help text to explain SCAN on Home screen 
          */
-        public static final int LBL_HELPTXT_SCAN_HOMESCREEN=0x7f080103;
+        public static final int LBL_HELPTXT_SCAN_HOMESCREEN=0x7f060104;
         /**  Help text to explain Search bar on Home screen 
          */
-        public static final int LBL_HELPTXT_SEARCHBAR_HOMESCREEN=0x7f080101;
+        public static final int LBL_HELPTXT_SEARCHBAR_HOMESCREEN=0x7f060102;
         /**  Duration string hours. 
          */
-        public static final int LBL_HOURS_AGO=0x7f080078;
+        public static final int LBL_HOURS_AGO=0x7f060079;
         /**  Duration string 1 hour. 
          */
-        public static final int LBL_HOUR_AGO=0x7f080077;
+        public static final int LBL_HOUR_AGO=0x7f060078;
         /**  Label for Image 
          */
-        public static final int LBL_IMAGE=0x7f080079;
+        public static final int LBL_IMAGE=0x7f06007a;
         /**  Distance string kilometers 
          */
-        public static final int LBL_KM_AWAY=0x7f08007a;
+        public static final int LBL_KM_AWAY=0x7f06007b;
         /**  Text for loading more contents 
          */
-        public static final int LBL_LOADING=0x7f08007c;
+        public static final int LBL_LOADING=0x7f06007d;
         /**  Text for load more contents 
          */
-        public static final int LBL_LOAD_MORE=0x7f08007b;
+        public static final int LBL_LOAD_MORE=0x7f06007c;
         /**  Title for message 
          */
-        public static final int LBL_LOGIN_JUNAIO=0x7f08007d;
+        public static final int LBL_LOGIN_JUNAIO=0x7f06007e;
         /**  Duration string minutes. 
          */
-        public static final int LBL_MINUTES_AGO=0x7f080080;
+        public static final int LBL_MINUTES_AGO=0x7f060081;
         /**  Duration string 1 minute. 
          */
-        public static final int LBL_MINUTE_AGO=0x7f08007f;
+        public static final int LBL_MINUTE_AGO=0x7f060080;
         /**  Label for 3D Model 
          */
-        public static final int LBL_MODEL=0x7f080081;
+        public static final int LBL_MODEL=0x7f060082;
         /**  Title for add comment screen 
          */
-        public static final int LBL_MY_COMMENT=0x7f080082;
+        public static final int LBL_MY_COMMENT=0x7f060083;
         /**  Distance string meters 
          */
-        public static final int LBL_M_AWAY=0x7f08007e;
+        public static final int LBL_M_AWAY=0x7f06007f;
         /**  Name-label for manage channel 
          */
-        public static final int LBL_NAME=0x7f080083;
+        public static final int LBL_NAME=0x7f060084;
         /**  Text to show number of POIs nearby 
          */
-        public static final int LBL_NEARBY=0x7f080084;
+        public static final int LBL_NEARBY=0x7f060085;
         /**  Label for Note 
          */
-        public static final int LBL_NOTE=0x7f080086;
+        public static final int LBL_NOTE=0x7f060087;
         /**  Text for indicating which Channel's shown in Live view. 
          */
-        public static final int LBL_NOW_VIEWING=0x7f080087;
+        public static final int LBL_NOW_VIEWING=0x7f060088;
         /**  Text for footer when no comments were found 
          */
-        public static final int LBL_NO_COMMENTS=0x7f080085;
+        public static final int LBL_NO_COMMENTS=0x7f060086;
         /**  Text that is displayed in the text-field when posting a message or image 
          */
-        public static final int LBL_POSTING=0x7f08008a;
+        public static final int LBL_POSTING=0x7f06008b;
         /**  Navigation title when posting an image 
          */
-        public static final int LBL_POST_IMAGE=0x7f080088;
+        public static final int LBL_POST_IMAGE=0x7f060089;
         /**  Navigation title for posting a message 
          */
-        public static final int LBL_POST_MESSAGE=0x7f080089;
+        public static final int LBL_POST_MESSAGE=0x7f06008a;
         /**  Private-label for tag visibility (manage channel) 
          */
-        public static final int LBL_PRIVATE=0x7f08008b;
+        public static final int LBL_PRIVATE=0x7f06008c;
         /**  Title for profile overview 
          */
-        public static final int LBL_PROFILE=0x7f08008c;
+        public static final int LBL_PROFILE=0x7f06008d;
         /**  Channel visibility public 
          */
-        public static final int LBL_PUBLIC=0x7f08008d;
+        public static final int LBL_PUBLIC=0x7f06008e;
         /**  Currently scanning QRCodes and Barcodes 
          */
-        public static final int LBL_QRCODES_AND_BARCODES=0x7f08008e;
+        public static final int LBL_QRCODES_AND_BARCODES=0x7f06008f;
         /**  Rate channel label 
          */
-        public static final int LBL_RATE=0x7f08008f;
+        public static final int LBL_RATE=0x7f060090;
         /**  text for something that happened less than a second ago 
          */
-        public static final int LBL_RIGHT_NOW=0x7f080090;
+        public static final int LBL_RIGHT_NOW=0x7f060091;
         /**  Message when searching for channels 
          */
-        public static final int LBL_SEARCHING_CHANNELS=0x7f080091;
+        public static final int LBL_SEARCHING_CHANNELS=0x7f060092;
         /**  Message when searching for products 
          */
-        public static final int LBL_SEARCHING_PRODUCTS=0x7f080092;
+        public static final int LBL_SEARCHING_PRODUCTS=0x7f060093;
         /**  This is less than 1 min 
          */
-        public static final int LBL_SECONDS_AGO=0x7f080093;
+        public static final int LBL_SECONDS_AGO=0x7f060094;
         /**  Segment control 
          */
-        public static final int LBL_TAG_IT=0x7f080094;
+        public static final int LBL_TAG_IT=0x7f060095;
         /**  Twitter label 
          */
-        public static final int LBL_TWITTER=0x7f080095;
+        public static final int LBL_TWITTER=0x7f060096;
         /**  Label for untitled contents such as POIs or Channels 
          */
-        public static final int LBL_UNTITLED=0x7f080096;
+        public static final int LBL_UNTITLED=0x7f060097;
         /**  e.g. 10m away or 4yd away. 
          */
-        public static final int LBL_X_AWAY=0x7f080097;
+        public static final int LBL_X_AWAY=0x7f060098;
         /**  Menu item for the context menu that appears on the web view to open an image in the browser app 
          */
-        public static final int MENU_OPEN_IMG_EXTERNAL=0x7f08010b;
+        public static final int MENU_OPEN_IMG_EXTERNAL=0x7f06010c;
         /**  Menu item for the context menu that appears on the web view to open a link in the browser app 
          */
-        public static final int MENU_OPEN_LINK_EXTERNAL=0x7f08010a;
+        public static final int MENU_OPEN_LINK_EXTERNAL=0x7f06010b;
         /**  Menu text to clear application cache 
          */
-        public static final int MNU_CLEAR_CACHE=0x7f080098;
+        public static final int MNU_CLEAR_CACHE=0x7f060099;
         /**  Menu text to clear channel history 
          */
-        public static final int MNU_CLEAR_HISTORY=0x7f080099;
+        public static final int MNU_CLEAR_HISTORY=0x7f06009a;
         /**  Menu text to zoom the map view to show all the contents 
          */
-        public static final int MNU_ZOOM_ALL=0x7f08009a;
+        public static final int MNU_ZOOM_ALL=0x7f06009b;
         /**  Menu text to zoom the map view to show the contents near current location only 
          */
-        public static final int MNU_ZOOM_HERE=0x7f08009b;
+        public static final int MNU_ZOOM_HERE=0x7f06009c;
         /**  Error message that is displayed when user attempted to signup without accepting terms of service 
          */
-        public static final int MSGE_ACCEPT_TERMS=0x7f0800ac;
+        public static final int MSGE_ACCEPT_TERMS=0x7f0600ad;
         /**  Message to display when creating a placed model failed 
          */
-        public static final int MSGE_ADDING_PLACEDMODEL=0x7f0800ad;
+        public static final int MSGE_ADDING_PLACEDMODEL=0x7f0600ae;
         /**  Alertview text when deleting a poi failed 
          */
-        public static final int MSGE_DELETE_POI=0x7f0800ae;
+        public static final int MSGE_DELETE_POI=0x7f0600af;
         /**  Please enter at least %i characters 
          */
-        public static final int MSGE_ENTER_ATLEAST_CHARS=0x7f0800af;
+        public static final int MSGE_ENTER_ATLEAST_CHARS=0x7f0600b0;
         /**  Error when accepting/ignoring a friend-request 
          */
-        public static final int MSGE_FRIENDSHIP=0x7f0800b1;
+        public static final int MSGE_FRIENDSHIP=0x7f0600b2;
         /**  Error message when requesting friendship call failed 
          */
-        public static final int MSGE_FRIENDSHIP_REQUEST=0x7f0800b2;
+        public static final int MSGE_FRIENDSHIP_REQUEST=0x7f0600b3;
         /**  Error message. New text: Removing friend failed. 
          */
-        public static final int MSGE_FRIEND_REMOVED=0x7f0800b0;
+        public static final int MSGE_FRIEND_REMOVED=0x7f0600b1;
         /**  Error message that is displayed if channel history is not cleared 
          */
-        public static final int MSGE_HISTORY_NOT_CLEARED=0x7f0800b3;
+        public static final int MSGE_HISTORY_NOT_CLEARED=0x7f0600b4;
         /**  Error message when junaio server returns 500, i.e. internal server error 
          */
-        public static final int MSGE_INTERNAL_SERVER=0x7f0800b4;
+        public static final int MSGE_INTERNAL_SERVER=0x7f0600b5;
         /**  Error message when user entered invalid email address 
          */
-        public static final int MSGE_INVALID_EMAIL_ENTERED=0x7f0800b5;
+        public static final int MSGE_INVALID_EMAIL_ENTERED=0x7f0600b6;
         /**  Message when a POI contains invalid email address 
          */
-        public static final int MSGE_INVALID_EMAIL_OPENED=0x7f0800b6;
+        public static final int MSGE_INVALID_EMAIL_OPENED=0x7f0600b7;
         /**  Invalid password for an external service e.g. twitter 
          */
-        public static final int MSGE_INVALID_PASSWORD=0x7f0800b7;
+        public static final int MSGE_INVALID_PASSWORD=0x7f0600b8;
         /**  Message when a POI contains invalid phone number 
          */
-        public static final int MSGE_INVALID_PHONE_NUMBER=0x7f0800b8;
+        public static final int MSGE_INVALID_PHONE_NUMBER=0x7f0600b9;
         /**  Message when invalid URL is opened in the custom web view 
          */
-        public static final int MSGE_INVALID_URL=0x7f0800b9;
+        public static final int MSGE_INVALID_URL=0x7f0600ba;
         /**  Invalid username for an external service e.g. twitter 
          */
-        public static final int MSGE_INVALID_USERNAME=0x7f0800ba;
+        public static final int MSGE_INVALID_USERNAME=0x7f0600bb;
         /**  Message when no lla marker was detected 
          */
-        public static final int MSGE_LLA_MARKER_DETECTED=0x7f0800bb;
+        public static final int MSGE_LLA_MARKER_DETECTED=0x7f0600bc;
         /**  Message if the twitter feed search failed 
          */
-        public static final int MSGE_LOAD_TWITTER=0x7f0800bc;
+        public static final int MSGE_LOAD_TWITTER=0x7f0600bd;
         /**  Message text that is displayed when login failed 
          */
-        public static final int MSGE_LOGIN=0x7f0800bd;
+        public static final int MSGE_LOGIN=0x7f0600be;
         /**  No comment provided by engineer. 
          */
-        public static final int MSGE_NETWORK=0x7f0800be;
+        public static final int MSGE_NETWORK=0x7f0600bf;
         /**  Message that is appended if the resource such as external storage is not available 
          */
-        public static final int MSGE_NOT_AVAILABLE=0x7f0800c5;
+        public static final int MSGE_NOT_AVAILABLE=0x7f0600c6;
         /**  Error message when user did not entered an email address 
          */
-        public static final int MSGE_NO_EMAIL=0x7f0800bf;
+        public static final int MSGE_NO_EMAIL=0x7f0600c0;
         /**  Error message that is displayed when external memory is unavailable for writing cached files 
          */
-        public static final int MSGE_NO_EXTERNAL_MEMORY=0x7f0800c0;
+        public static final int MSGE_NO_EXTERNAL_MEMORY=0x7f0600c1;
         /**  Message when the device does not have Google Maps Navigation installed that is required for POIs' route feature 
          */
-        public static final int MSGE_NO_GOOGLE_MAPS_NAV=0x7f0800c1;
+        public static final int MSGE_NO_GOOGLE_MAPS_NAV=0x7f0600c2;
         /**  Error message that is displayed when internal memory is unavailable for writing application data 
          */
-        public static final int MSGE_NO_INTERNAL_MEMORY=0x7f0800c2;
+        public static final int MSGE_NO_INTERNAL_MEMORY=0x7f0600c3;
         /**  Error message when junaio server is not reachable, i.e. no internet connection 
          */
-        public static final int MSGE_NO_INTERNET=0x7f0800c3;
+        public static final int MSGE_NO_INTERNET=0x7f0600c4;
         /**  Message that the current device does not support optical tracking 
          */
-        public static final int MSGE_NO_OPTICAL_TRACKING=0x7f0800c4;
+        public static final int MSGE_NO_OPTICAL_TRACKING=0x7f0600c5;
         /**  Error message when application is unable to play audio stream 
          */
-        public static final int MSGE_PLAYING_AUDIO=0x7f0800c6;
+        public static final int MSGE_PLAYING_AUDIO=0x7f0600c7;
         /**  Error  message for image posting screen 
          */
-        public static final int MSGE_POST_IMAGE=0x7f0800c7;
+        public static final int MSGE_POST_IMAGE=0x7f0600c8;
         /**  Error message for posting a new message 
          */
-        public static final int MSGE_POST_MESSAGE=0x7f0800c8;
+        public static final int MSGE_POST_MESSAGE=0x7f0600c9;
         /**  No comment provided by engineer. 
          */
-        public static final int MSGE_PUBLISH_COMMENT=0x7f0800c9;
+        public static final int MSGE_PUBLISH_COMMENT=0x7f0600ca;
         /**  Server error 
          */
-        public static final int MSGE_SERVER=0x7f0800ca;
+        public static final int MSGE_SERVER=0x7f0600cb;
         /**  Message that is displayed when signup failed. 
          */
-        public static final int MSGE_SIGNUP=0x7f0800cb;
+        public static final int MSGE_SIGNUP=0x7f0600cc;
         /**  No comment provided by engineer. 
          */
-        public static final int MSGE_SUBSCRIBE_CHANNEL=0x7f0800cc;
+        public static final int MSGE_SUBSCRIBE_CHANNEL=0x7f0600cd;
         /**  Error message when server took too long to response 
          */
-        public static final int MSGE_TIMEOUT=0x7f0800cd;
+        public static final int MSGE_TIMEOUT=0x7f0600ce;
         /**  Please try again later 
          */
-        public static final int MSGE_TRY_AGAIN=0x7f0800ce;
+        public static final int MSGE_TRY_AGAIN=0x7f0600cf;
         /**  No comment provided by engineer. 
          */
-        public static final int MSGE_TWITTER_LOGIN=0x7f0800cf;
+        public static final int MSGE_TWITTER_LOGIN=0x7f0600d0;
         /**  Error message when junaio server returns 401, 403 or 404, i.e. user is not authorized to access the information 
          */
-        public static final int MSGE_UNAUTHORIZED_ACCESS=0x7f0800d0;
+        public static final int MSGE_UNAUTHORIZED_ACCESS=0x7f0600d1;
         /**  Generic message for all kinds of network errors 
          */
-        public static final int MSGE_UNKNOWN_NETWORK=0x7f0800d1;
+        public static final int MSGE_UNKNOWN_NETWORK=0x7f0600d2;
         /**  Failed to update channel 
          */
-        public static final int MSGE_UPDATE_CHANNEL=0x7f0800d2;
+        public static final int MSGE_UPDATE_CHANNEL=0x7f0600d3;
         /**  Error message that is displayed when password length is short 
          */
-        public static final int MSGE_VERIFY_PASSWORD=0x7f0800d3;
+        public static final int MSGE_VERIFY_PASSWORD=0x7f0600d4;
         /**  Error message that is displayed when username length is short or too long 
          */
-        public static final int MSGE_VERIFY_USERNAME=0x7f0800d4;
+        public static final int MSGE_VERIFY_USERNAME=0x7f0600d5;
         /**  Message that is appended if the resource such as external storage is available 
          */
-        public static final int MSGI_AVAILABLE=0x7f0800d5;
+        public static final int MSGI_AVAILABLE=0x7f0600d6;
         /**  Message that is displayed when application cache is succesfully cleared 
          */
-        public static final int MSGI_CACHE_CLEARED=0x7f0800d6;
+        public static final int MSGI_CACHE_CLEARED=0x7f0600d7;
         /**  Message that is displayed when no channels are found based on search 
          */
-        public static final int MSGI_CHANNELS_NOT_FOUND=0x7f0800d7;
+        public static final int MSGI_CHANNELS_NOT_FOUND=0x7f0600d8;
         /**  Downloading message 
          */
-        public static final int MSGI_DOWNLOADING=0x7f0800d8;
+        public static final int MSGI_DOWNLOADING=0x7f0600d9;
         /**  No comment provided by engineer. 
          */
-        public static final int MSGI_DOWNLOADING_EXTERNAL_MODEL=0x7f0800d9;
+        public static final int MSGI_DOWNLOADING_EXTERNAL_MODEL=0x7f0600da;
         /**  Message for sent friend request 
          */
-        public static final int MSGI_FRIEND_REQUEST_SENT=0x7f0800da;
+        public static final int MSGI_FRIEND_REQUEST_SENT=0x7f0600db;
         /**  Message that application is waiting for initial location by the GPS 
          */
-        public static final int MSGI_GPS_WAITING=0x7f0800db;
+        public static final int MSGI_GPS_WAITING=0x7f0600dc;
         /**  Message that is displayed when channels history is succesfully cleared 
          */
-        public static final int MSGI_HISTORY_CLEARED=0x7f0800dc;
+        public static final int MSGI_HISTORY_CLEARED=0x7f0600dd;
         /**  Message that is displayed when channels history list is empty 
          */
-        public static final int MSGI_HISTORY_EMPTY=0x7f0800dd;
+        public static final int MSGI_HISTORY_EMPTY=0x7f0600de;
         /**  Message that iPhone 3G is not supported 
          */
-        public static final int MSGI_HW_NOT_SUPPORTED=0x7f0800e3;
+        public static final int MSGI_HW_NOT_SUPPORTED=0x7f0600e4;
         /**  Message for 'do you like this app' message 
          */
-        public static final int MSGI_LIKEAPP_MSG=0x7f0800de;
+        public static final int MSGI_LIKEAPP_MSG=0x7f0600df;
         /**  Message for LLA-marker detected message box 
          */
-        public static final int MSGI_LLA_MARKER_DETECTED=0x7f0800df;
+        public static final int MSGI_LLA_MARKER_DETECTED=0x7f0600e0;
         /**  Message in the loading bar while loading POIs 
          */
-        public static final int MSGI_LOADING_POIS=0x7f0800e0;
+        public static final int MSGI_LOADING_POIS=0x7f0600e1;
         /**  Message that is displayed while the data for a twitter feed is loaded, followed by the twitter username 
          */
-        public static final int MSGI_LOADING_TWITTER_FEED_FOR=0x7f0800e1;
+        public static final int MSGI_LOADING_TWITTER_FEED_FOR=0x7f0600e2;
         /**  Message that is displayed in my junaio when the user is not logged in 
          */
-        public static final int MSGI_NOT_LOGGED_IN=0x7f0800e6;
+        public static final int MSGI_NOT_LOGGED_IN=0x7f0600e7;
         /**  Message if no twitter feed results were found 
          */
-        public static final int MSGI_NO_CURRENT_TWEETS=0x7f0800e2;
+        public static final int MSGI_NO_CURRENT_TWEETS=0x7f0600e3;
         /**  No Search results 
          */
-        public static final int MSGI_NO_MATCHES=0x7f0800e4;
+        public static final int MSGI_NO_MATCHES=0x7f0600e5;
         /**  Message when no results are found after visual search 
          */
-        public static final int MSGI_NO_RESULTS=0x7f0800e5;
+        public static final int MSGI_NO_RESULTS=0x7f0600e6;
         /**  No POIs found 
          */
-        public static final int MSGI_POIS_NOT_FOUND=0x7f0800e7;
+        public static final int MSGI_POIS_NOT_FOUND=0x7f0600e8;
         /**  Title for sending a friend request 
          */
-        public static final int MSGI_SEND_FRIENDREQUEST_TO=0x7f0800e8;
+        public static final int MSGI_SEND_FRIENDREQUEST_TO=0x7f0600e9;
         /**  Message on splash screen that junaio is starting 
          */
-        public static final int MSGI_STARTING_JUNAIO=0x7f0800e9;
+        public static final int MSGI_STARTING_JUNAIO=0x7f0600ea;
         /**  Message when application is syncing models with the server 
          */
-        public static final int MSGI_SYNCING_MODELS=0x7f0800ea;
+        public static final int MSGI_SYNCING_MODELS=0x7f0600eb;
         /**  Thank you message 
          */
-        public static final int MSGI_THANK_YOU=0x7f0800eb;
+        public static final int MSGI_THANK_YOU=0x7f0600ec;
         /**  Message when no users were found in the friend search 
          */
-        public static final int MSGI_USERS_NOT_FOUND=0x7f0800ec;
+        public static final int MSGI_USERS_NOT_FOUND=0x7f0600ed;
         /**  Text if customization was not filled in correctly 
          */
-        public static final int MSGQ_FILL_IN=0x7f0800ed;
+        public static final int MSGQ_FILL_IN=0x7f0600ee;
         /**  Message logout from junaio 
          */
-        public static final int MSGQ_LOGOUT=0x7f0800ee;
+        public static final int MSGQ_LOGOUT=0x7f0600ef;
         /**  No comment provided by engineer. 
          */
-        public static final int MSGQ_REMOVE_FRIEND=0x7f0800ef;
+        public static final int MSGQ_REMOVE_FRIEND=0x7f0600f0;
         /**  Message that is displayed before user can confirm an important task such as deleting or logging out 
          */
-        public static final int MSGQ_WANT_TO_CONTINUE=0x7f0800f0;
+        public static final int MSGQ_WANT_TO_CONTINUE=0x7f0600f1;
         /**  Warning message displayed in the Live view if the accelerometer sensor is unavailable 
          */
-        public static final int MSGW_ACCELEROMETER_UNAVAILABLE=0x7f0800f1;
+        public static final int MSGW_ACCELEROMETER_UNAVAILABLE=0x7f0600f2;
         /**  Some Android Devices do not support Barcode Scanning (Warning Message Content) 
          */
-        public static final int MSGW_BARCODE_UNSUPPORTED=0x7f0800ff;
+        public static final int MSGW_BARCODE_UNSUPPORTED=0x7f060100;
         /**  Warning message displayed when the device is from the black list 
          */
-        public static final int MSGW_BLACK_LIST=0x7f0800f2;
+        public static final int MSGW_BLACK_LIST=0x7f0600f3;
         /**  Warning message displayed in the Live view if the camera is unavailable 
          */
-        public static final int MSGW_CAMERA_UNAVAILABLE=0x7f0800f3;
+        public static final int MSGW_CAMERA_UNAVAILABLE=0x7f0600f4;
         /**  Warning message displayed in the Live view if the GPS or location sensor is unavailable 
          */
-        public static final int MSGW_GPS_UNAVAILABLE=0x7f0800f4;
+        public static final int MSGW_GPS_UNAVAILABLE=0x7f0600f5;
         /**  Message that IOS4 is required 
          */
-        public static final int MSGW_IOS4_REQUIRED=0x7f0800f5;
+        public static final int MSGW_IOS4_REQUIRED=0x7f0600f6;
         /**  Warning message on iPhone 3G 
          */
-        public static final int MSGW_IPHONE_3GS_REQUIRED=0x7f0800f6;
+        public static final int MSGW_IPHONE_3GS_REQUIRED=0x7f0600f7;
         /**  Title for message to be displayed when starting with an iPhone 3G message 
          */
-        public static final int MSGW_LIVEVIEW_ONLY_3GS=0x7f0800f7;
+        public static final int MSGW_LIVEVIEW_ONLY_3GS=0x7f0600f8;
         /**  Message when LocationService is deactivated 
          */
-        public static final int MSGW_LOCATIONSERVICE_NEEDED=0x7f0800f9;
+        public static final int MSGW_LOCATIONSERVICE_NEEDED=0x7f0600fa;
         /**  Warning message that is displayed when user's current location cannot be determined 
          */
-        public static final int MSGW_LOCATION_UNAVAILABLE=0x7f0800f8;
+        public static final int MSGW_LOCATION_UNAVAILABLE=0x7f0600f9;
         /**  Warning message displayed when the device is not from the white list 
          */
-        public static final int MSGW_NOT_WHITE_LIST=0x7f0800fa;
+        public static final int MSGW_NOT_WHITE_LIST=0x7f0600fb;
         /**  Warning message that junaio will be closed and an external application will run 
          */
-        public static final int MSGW_OPEN_EXTERNAL_APP=0x7f0800fb;
+        public static final int MSGW_OPEN_EXTERNAL_APP=0x7f0600fc;
         /**  Warning message displayed in the Live view if the orientation/compass sensor is unavailable 
          */
-        public static final int MSGW_ORIENTATION_UNAVAILABLE=0x7f0800fc;
+        public static final int MSGW_ORIENTATION_UNAVAILABLE=0x7f0600fd;
         /**  Message that is displayed when junaio server is unreachable 
          */
-        public static final int MSGW_SERVER_UNREACHABLE=0x7f0800fd;
+        public static final int MSGW_SERVER_UNREACHABLE=0x7f0600fe;
         /**  Some Android Devices do not support Barcode Scanning (Warning Message Title) 
          */
-        public static final int MSG_TITLE_BARCODE_UNSUPPORTED=0x7f0800fe;
+        public static final int MSG_TITLE_BARCODE_UNSUPPORTED=0x7f0600ff;
         /**  Title directions message 
          */
-        public static final int MSG_TITLE_DIRECTIONS=0x7f08009c;
+        public static final int MSG_TITLE_DIRECTIONS=0x7f06009d;
         /**  Title for 'do you like this app' message 
          */
-        public static final int MSG_TITLE_LIKE_APP=0x7f08009d;
+        public static final int MSG_TITLE_LIKE_APP=0x7f06009e;
         /**  Title of message when LLA marker was detected 
          */
-        public static final int MSG_TITLE_LLA_MARKER_DETECTED=0x7f08009e;
+        public static final int MSG_TITLE_LLA_MARKER_DETECTED=0x7f06009f;
         /**  Title message for dialog when login is failed 
          */
-        public static final int MSG_TITLE_LOGIN_FAILED=0x7f08009f;
+        public static final int MSG_TITLE_LOGIN_FAILED=0x7f0600a0;
         /**  Title when no lla marker was detected 
          */
-        public static final int MSG_TITLE_NO_LLA_MARKERS_DETECTED=0x7f0800a0;
+        public static final int MSG_TITLE_NO_LLA_MARKERS_DETECTED=0x7f0600a1;
         /**  Message title that is displayed when memory is unavailable 
          */
-        public static final int MSG_TITLE_NO_MEMORY=0x7f0800a1;
+        public static final int MSG_TITLE_NO_MEMORY=0x7f0600a2;
         /**  Title to display when creating a placed model failed 
          */
-        public static final int MSG_TITLE_PLACING_MODEL_FAILED=0x7f0800a2;
+        public static final int MSG_TITLE_PLACING_MODEL_FAILED=0x7f0600a3;
         /**  Dialog title when searching for channels 
          */
-        public static final int MSG_TITLE_SEARCHING_CHANNELS=0x7f0800a3;
+        public static final int MSG_TITLE_SEARCHING_CHANNELS=0x7f0600a4;
         /**  Title of the message that is displayed when junaio server is unreachable 
          */
-        public static final int MSG_TITLE_SERVER_UNREACHABLE=0x7f0800a4;
+        public static final int MSG_TITLE_SERVER_UNREACHABLE=0x7f0600a5;
         /**  Title for sign up error message 
          */
-        public static final int MSG_TITLE_SIGNUP_ERROR=0x7f0800a5;
+        public static final int MSG_TITLE_SIGNUP_ERROR=0x7f0600a6;
         /**  Title message for dialog when signup is failed 
          */
-        public static final int MSG_TITLE_SIGNUP_FAILED=0x7f0800a6;
+        public static final int MSG_TITLE_SIGNUP_FAILED=0x7f0600a7;
         /**  Title terms and conditions message 
          */
-        public static final int MSG_TITLE_TERMS_CONDITIONS=0x7f0800a7;
+        public static final int MSG_TITLE_TERMS_CONDITIONS=0x7f0600a8;
         /**  Terms of service (web view title) 
          */
-        public static final int MSG_TITLE_TERMS_SERVICE=0x7f0800a8;
+        public static final int MSG_TITLE_TERMS_SERVICE=0x7f0600a9;
         /**  Title for message when no friends were found 
          */
-        public static final int MSG_TITLE_USERS_NOT_FOUND=0x7f0800a9;
+        public static final int MSG_TITLE_USERS_NOT_FOUND=0x7f0600aa;
         /**  Message title that is displayed when user inputs invalid data into the text field 
          */
-        public static final int MSG_TITLE_VALIDATION_ERROR=0x7f0800aa;
+        public static final int MSG_TITLE_VALIDATION_ERROR=0x7f0600ab;
         /**  Title for warning messages 
          */
-        public static final int MSG_TITLE_WARNING=0x7f0800ab;
+        public static final int MSG_TITLE_WARNING=0x7f0600ac;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
-        public static final int abc_action_bar_home_description=0x7f080128;
+        public static final int abc_action_bar_home_description=0x7f060129;
         /**  Content description for the action bar "up" affordance. [CHAR LIMIT=NONE] 
          */
-        public static final int abc_action_bar_up_description=0x7f080129;
+        public static final int abc_action_bar_up_description=0x7f06012a;
         /**  Content description for the action menu overflow button. [CHAR LIMIT=NONE] 
          */
-        public static final int abc_action_menu_overflow_description=0x7f08012a;
+        public static final int abc_action_menu_overflow_description=0x7f06012b;
         /**  Label for the "Done" button on the far left of action mode toolbars. 
          */
-        public static final int abc_action_mode_done=0x7f080127;
+        public static final int abc_action_mode_done=0x7f060128;
         /**  Title for a button to expand the list of activities in ActivityChooserView [CHAR LIMIT=25] 
          */
-        public static final int abc_activity_chooser_view_see_all=0x7f080131;
+        public static final int abc_activity_chooser_view_see_all=0x7f060132;
         /**  ActivityChooserView - accessibility support 
  Description of the shwoing of a popup window with activities to choose from. [CHAR LIMIT=NONE] 
          */
-        public static final int abc_activitychooserview_choose_application=0x7f080130;
+        public static final int abc_activitychooserview_choose_application=0x7f060131;
         /**  SearchView accessibility description for clear button [CHAR LIMIT=NONE] 
          */
-        public static final int abc_searchview_description_clear=0x7f08012d;
+        public static final int abc_searchview_description_clear=0x7f06012e;
         /**  SearchView accessibility description for search text field [CHAR LIMIT=NONE] 
          */
-        public static final int abc_searchview_description_query=0x7f08012c;
+        public static final int abc_searchview_description_query=0x7f06012d;
         /**  SearchView accessibility description for search button [CHAR LIMIT=NONE] 
          */
-        public static final int abc_searchview_description_search=0x7f08012b;
+        public static final int abc_searchview_description_search=0x7f06012c;
         /**  SearchView accessibility description for submit button [CHAR LIMIT=NONE] 
          */
-        public static final int abc_searchview_description_submit=0x7f08012e;
+        public static final int abc_searchview_description_submit=0x7f06012f;
         /**  SearchView accessibility description for voice button [CHAR LIMIT=NONE] 
          */
-        public static final int abc_searchview_description_voice=0x7f08012f;
+        public static final int abc_searchview_description_voice=0x7f060130;
         /**  Description of the choose target button in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
-        public static final int abc_shareactionprovider_share_with=0x7f080133;
+        public static final int abc_shareactionprovider_share_with=0x7f060134;
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
-        public static final int abc_shareactionprovider_share_with_application=0x7f080132;
-        public static final int action_add=0x7f080139;
-        public static final int action_settings=0x7f080135;
-        public static final int app_name=0x7f080134;
+        public static final int abc_shareactionprovider_share_with_application=0x7f060133;
+        public static final int action_add=0x7f06013a;
+        public static final int action_settings=0x7f060136;
+        public static final int app_name=0x7f060135;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_enabling_title=0x7f080121;
+        public static final int auth_client_needs_enabling_title=0x7f060122;
         /**   Title for notification shown when GooglePlayServices needs to be
         installed for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_installation_title=0x7f080122;
+        public static final int auth_client_needs_installation_title=0x7f060123;
         /**   Title for notification shown when GooglePlayServices needs to be
         udpated for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_update_title=0x7f080123;
+        public static final int auth_client_needs_update_title=0x7f060124;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f080124;
+        public static final int auth_client_play_services_err_notification_msg=0x7f060125;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f080125;
+        public static final int auth_client_requested_by_msg=0x7f060126;
         /**   Title for notification shown when a bad version of GooglePlayServices
         has been installed and needs correction for an application to work.
         [CHAR LIMIT=70] 
          */
-        public static final int auth_client_using_bad_version_title=0x7f080120;
-        public static final int close=0x7f08013b;
+        public static final int auth_client_using_bad_version_title=0x7f060121;
+        public static final int close=0x7f06013c;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_button=0x7f080112;
+        public static final int common_google_play_services_enable_button=0x7f060113;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_enable_text=0x7f080111;
+        public static final int common_google_play_services_enable_text=0x7f060112;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_title=0x7f080110;
+        public static final int common_google_play_services_enable_title=0x7f060111;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_button=0x7f08010f;
+        public static final int common_google_play_services_install_button=0x7f060110;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_phone=0x7f08010d;
+        public static final int common_google_play_services_install_text_phone=0x7f06010e;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_tablet=0x7f08010e;
+        public static final int common_google_play_services_install_text_tablet=0x7f06010f;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_title=0x7f08010c;
+        public static final int common_google_play_services_install_title=0x7f06010d;
         /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_invalid_account_text=0x7f080118;
+        public static final int common_google_play_services_invalid_account_text=0x7f060119;
         /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_invalid_account_title=0x7f080117;
+        public static final int common_google_play_services_invalid_account_title=0x7f060118;
         /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_network_error_text=0x7f080116;
+        public static final int common_google_play_services_network_error_text=0x7f060117;
         /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_network_error_title=0x7f080115;
+        public static final int common_google_play_services_network_error_title=0x7f060116;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unknown_issue=0x7f080119;
+        public static final int common_google_play_services_unknown_issue=0x7f06011a;
         /**  Message in confirmation dialog informing user that date on the device is not correct,
     causing certificate checks to fail. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_date_text=0x7f08011c;
+        public static final int common_google_play_services_unsupported_date_text=0x7f06011d;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_text=0x7f08011b;
+        public static final int common_google_play_services_unsupported_text=0x7f06011c;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_unsupported_title=0x7f08011a;
+        public static final int common_google_play_services_unsupported_title=0x7f06011b;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_button=0x7f08011d;
+        public static final int common_google_play_services_update_button=0x7f06011e;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_text=0x7f080114;
+        public static final int common_google_play_services_update_text=0x7f060115;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_title=0x7f080113;
+        public static final int common_google_play_services_update_title=0x7f060114;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static final int common_signin_button_text=0x7f08011e;
+        public static final int common_signin_button_text=0x7f06011f;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static final int common_signin_button_text_long=0x7f08011f;
-        public static final int empty=0x7f080137;
-        public static final int hello_world=0x7f080136;
-        public static final int image_base_url=0x7f080138;
+        public static final int common_signin_button_text_long=0x7f060120;
+        public static final int dummyString=0x7f060000;
+        public static final int empty=0x7f060138;
+        public static final int hello_world=0x7f060137;
+        public static final int image_base_url=0x7f060139;
         /**  Location client code resources (prefix with location_client) 
          */
-        public static final int location_client_powered_by_google=0x7f080126;
-        public static final int metaioSDKSignature=0x7f080000;
-        public static final int open=0x7f08013a;
-        public static final int title_activity_draw=0x7f08013d;
-        public static final int title_activity_photo=0x7f08013e;
-        public static final int title_activity_search=0x7f08013c;
+        public static final int location_client_powered_by_google=0x7f060127;
+        public static final int metaioSDKSignature=0x7f060001;
+        public static final int open=0x7f06013b;
+        public static final int title_activity_draw=0x7f06013e;
+        public static final int title_activity_photo=0x7f06013f;
+        public static final int title_activity_search=0x7f06013d;
     }
     public static final class style {
         /** 
